@@ -1,0 +1,18 @@
+﻿========Preload==============
+	P=bigicon_p.png
+	T=largeicon_t.png
+	H=largeicon_h.png
+	H1=largeicon_h1.png
+
+
+=========Compression==========
+	W=largeicon_w.png
+	C=largeicon_c.png
+	C(AB)=
+
+==========Rebound=Y===========
+	bigicon_r.png
+	
+==========Lenght Ajuster=========
+	bigicon_l.png
+

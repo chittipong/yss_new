@@ -1,0 +1,24 @@
+@CHARSET "UTF-8";
+.css-pager a { 
+    text-decoration: none;
+    color: #fff;
+    background: #D40003;
+    padding: 10px 10px;
+    margin: 2px;
+    font-weight: 700;
+    font-size: 11px;
+	}
+.css-pager a:hover { 
+	text-decoration:none; 
+	color: #fff;
+    background: #565656;
+}
+.current_page { 
+	text-decoration: none;
+	color: #616161;
+	background: #C5C5C5;
+	padding: 8px 8px;
+	margin: 2px;
+	font-weight: 700;
+	font-size: 11px;
+}
