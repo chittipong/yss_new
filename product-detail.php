@@ -185,7 +185,7 @@ echo $_SESSION['sess_lang'];
 <script type="text/javascript" language="javascript" src="js/custom.js"></script>
 </head>
 
-<body>'
+<body>
 <div class="body_wrap">
 	
 <!-- header top bar -->    
@@ -330,8 +330,7 @@ echo $_SESSION['sess_lang'];
 										$preloadImg="hhhh1.jpg";
 									}
 								
-								if($preload=="T"){
-									
+							if($preload=="T"){
 					?>
                         <div class="col col_1_2  omega">
                             <div class="inner">

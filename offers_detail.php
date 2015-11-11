@@ -44,7 +44,7 @@
 <script type="text/javascript" language="javascript" src="js/custom.js"></script>
 </head>
 
-<body>'
+<body>
 <div class="body_wrap">
 	
 	<!-- header top bar -->

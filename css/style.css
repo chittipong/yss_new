@@ -1580,7 +1580,8 @@ p.wp-caption-text, .frame_caption {
 	padding:1px 0;}
 
 .middle_row.row_white {
-	background:#fff}
+	background:#fff url(../images/bg/bg_001.jpg);
+}
 
 .middle_row.row_light_gray {
 	background:#f0f3f5;
@@ -2765,7 +2766,7 @@ h3.toggle.box {
 	padding-top:18px}
 
 .search_row .row .label_title {
-	color:#3f4b56;
+	color:#808080;
 	font-size:13px;
 	display:block;
 	padding-bottom:5px}
@@ -3159,24 +3160,24 @@ h3.toggle.box {
 	line-height:1.4em;}
 
 .car_types_list li.flip a strong {
-	color:#62c1ed;}
+	color:#EFD000;}
 
 .car_types_list li a em {
-	color:#105879;
+	color:#444;
 	font-style:normal;
 	font-weight:bold;
 	text-transform:uppercase;}
 
-.car_types_list li.cart_type_1 .front {	background-image:url(../images/icons/car_types_1_1.png)}
-.car_types_list li.cart_type_1 .back {	background-image:url(../images/icons/car_types_1_2.png)}
-.car_types_list li.cart_type_2 .front {	background-image:url(../images/icons/car_types_9_1.png)}
-.car_types_list li.cart_type_2 .back {	background-image:url(../images/icons/car_types_9_2.png)}
-.car_types_list li.cart_type_3 .front {	background-image:url(../images/icons/car_types_3_1.png)}
-.car_types_list li.cart_type_3 .back {	background-image:url(../images/icons/car_types_3_2.png)}
-.car_types_list li.cart_type_4 .front {	background-image:url(../images/icons/car_types_4_1.png)}
-.car_types_list li.cart_type_4 .back {	background-image:url(../images/icons/car_types_4_2.png)}
-.car_types_list li.cart_type_5 .front {	background-image:url(../images/icons/car_types_5_1.png)}
-.car_types_list li.cart_type_5 .back {	background-image:url(../images/icons/car_types_5_2.png)}
+.car_types_list li.cart_type_1 .front {	background-image:url(../images/icons/car_types_9_1.png)}
+.car_types_list li.cart_type_1 .back {	background-image:url(../images/icons/car_types_9_2.png)}
+.car_types_list li.cart_type_2 .front {	background-image:url(../images/icons/car_types_12_1.png)}
+.car_types_list li.cart_type_2 .back {	background-image:url(../images/icons/car_types_12_2.png)}
+.car_types_list li.cart_type_3 .front {	background-image:url(../images/icons/car_types_10_1.png)}
+.car_types_list li.cart_type_3 .back {	background-image:url(../images/icons/car_types_10_2.png)}
+.car_types_list li.cart_type_4 .front {	background-image:url(../images/icons/car_types_11_1.png)}
+.car_types_list li.cart_type_4 .back {	background-image:url(../images/icons/car_types_11_2.png)}
+.car_types_list li.cart_type_5 .front {	background-image:url(../images/icons/car_types_13_1.png)}
+.car_types_list li.cart_type_5 .back {	background-image:url(../images/icons/car_types_13_2.png)}
 .car_types_list li.cart_type_6 .front {	background-image:url(../images/icons/car_types_6_1.png)}
 .car_types_list li.cart_type_6 .back {	background-image:url(../images/icons/car_types_6_2.png)}
 .car_types_list li.cart_type_7 .front {	background-image:url(../images/icons/car_types_7_1.png)}

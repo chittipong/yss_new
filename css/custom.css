@@ -264,3 +264,29 @@ url("font/highlandgothiclightflf.ttf") format('truetype');}
     width: 390px;
     margin-left: 40px !important;
 }
+
+a.link-style-1{
+	color:#FFB06C;
+}
+a.link-style-1:hover{
+	color:#fff;
+}
+a.link-style-2{
+	color:#158AAF;
+}
+a.link-style-2:hover{
+	color:#444;
+}
+ul#sidebar-banner{
+	padding: 6px;
+   /* background: #fff;*/
+    clear: both;
+    min-height: 218px;
+   /* box-shadow: 2px 2px 10px #999;*/
+}
+ul#sidebar-banner li{
+	width: 130px;
+    height: 110px;
+    float: left;
+    margin: 4px;
+}

@@ -1,7 +1,7 @@
 <?php
-//GET SLIDE===================================
-	$sql_slide="SELECT n.id,n.pic,d.title FROM yss_news n,yss_news_detail d WHERE n.id=d.news_id GROUP BY d.news_id ORDER BY n.date_create ASC";
-	$rs=mysqli_query($conn,$sql_slide);
+	//GET News===================================
+		$sql_slide="SELECT n.id,n.pic,d.title FROM yss_news n,yss_news_detail d WHERE n.id=d.news_id GROUP BY d.news_id ORDER BY n.date_create ASC";
+		$rs=mysqli_query($conn,$sql_slide);
 ?>
 
 <div class="middle_row latest_offers">

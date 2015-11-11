@@ -25,7 +25,7 @@
 					?>
                         <div class="special_item">
                             <div class="special_image">
-                            <a href="product-detail.php?id=<?php echo $p_id ?>"><img src="images/products/large/<?php echo $p_image ?>" height="50" alt=""></a>
+                            <a href="product-detail.php?id=<?php echo $p_id ?>"><img src="images/products/large/<?php echo $p_image ?>" alt="" style="height:40px;"></a>
                             </div>
                             <div class="special_text">
                                 <h3><a href="product-detail.php?id=<?php echo $p_id ?>"><?php echo $p_code ?></a></h3>

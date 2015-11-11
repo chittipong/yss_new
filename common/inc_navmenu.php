@@ -70,29 +70,29 @@ $sql="SELECT * FROM yss_content WHERE specific_name='service_wellcome_txt' AND l
 	                        </li>	                        
                             <li class="menu-level-1"><a href="#"><span>Vehicles</span></a>
 	                            <ul class="submenu-2">                                
-	                                <li class="menu-level-2"><a href="blog.html"><span>Motorbikes</span></a></li>
-	                                <li class="menu-level-2"><a href="blog.html"><span>Scooter</span></a></li>
-	                                <li class="menu-level-2"><a href="blog.html"><span>ATV</span></a></li>
-	                                <li class="menu-level-2"><a href="blog.html"><span>Special Purpose</span></a></li>
-	                                <li class="menu-level-2"><a href="blog.html"><span>CAR</span></a></li>
-	                                <li class="menu-level-2 more-nav"><a href="blog.html"><span>view all</span></a></li>
+	                                <li class="menu-level-2"><a href="product-list.php"><span>Motorbikes</span></a></li>
+	                                <li class="menu-level-2"><a href="product-list.php"><span>Scooter</span></a></li>
+	                                <li class="menu-level-2"><a href="product-list.php"><span>ATV</span></a></li>
+	                                <li class="menu-level-2"><a href="product-list.php"><span>Special Purpose</span></a></li>
+	                                <li class="menu-level-2"><a href="product-list.php"><span>CAR</span></a></li>
+	                                <li class="menu-level-2 more-nav"><a href="product-list.php"><span>view all</span></a></li>
 	                            </ul>
 							</li>
 	                        <li class="menu-level-1"><a href="#"><span>Product Range</span></a>
 	                            <ul class="submenu-2">                                
-	                                <li class="menu-level-2"><a href="blog.html"><span>Racing Product</span></a></li>
-	                                <li class="menu-level-2"><a href="blog.html"><span>Top Line Product</span></a></li>
-	                                <li class="menu-level-2"><a href="blog.html"><span>Eco Line Product</span></a></li>
-	                                <li class="menu-level-2"><a href="blog.html"><span>GAS DTG</span></a></li>
-                                    <li class="menu-level-2"><a href="blog.html"><span>Hydraulic Shock Absorber</span></a></li>
+	                                <li class="menu-level-2"><a href="product-list.php"><span>Racing Product</span></a></li>
+	                                <li class="menu-level-2"><a href="product-list.php"><span>Top Line Product</span></a></li>
+	                                <li class="menu-level-2"><a href="product-list.php"><span>Eco Line Product</span></a></li>
+	                                <li class="menu-level-2"><a href="product-list.php"><span>GAS DTG</span></a></li>
+                                    <li class="menu-level-2"><a href="product-list.php"><span>Hydraulic Shock Absorber</span></a></li>
 	                            </ul>
 							</li>    
                             <li class="menu-level-1"><a href="#"><span>Product Range</span></a>
 	                            <ul class="submenu-2">                                
-	                                <li class="menu-level-2"><a href="blog.html"><span>Front Fork</span></a></li>
-	                                <li class="menu-level-2"><a href="blog.html"><span>Steering Damper</span></a></li>
-	                                <li class="menu-level-2"><a href="blog.html"><span>Accessories</span></a></li>
-	                                <li class="menu-level-2 more-nav"><a href="blog.html"><span>view all</span></a></li>
+	                                <li class="menu-level-2"><a href="product-list.php"><span>Front Fork</span></a></li>
+	                                <li class="menu-level-2"><a href="product-list.php"><span>Steering Damper</span></a></li>
+	                                <li class="menu-level-2"><a href="product-list.php"><span>Accessories</span></a></li>
+	                                <li class="menu-level-2 more-nav"><a href="product-list.php"><span>view all</span></a></li>
 	                            </ul>
 							</li>                   	                                                                    
 	                    </ul>
@@ -120,7 +120,7 @@ $sql="SELECT * FROM yss_content WHERE specific_name='service_wellcome_txt' AND l
                                     <li class="menu-level-2"><a href="download.php"><span><?php echo $menu_download ?></span></a></li>
                                     <li class="menu-level-2"><a href="faq.php"><span><?php echo $menu_faq ?></span></a></li>
                                     <li class="menu-level-2"><a href="support.php"><span><?php echo $menu_support ?></span></a></li>
-	                                <!--<li class="menu-level-2 more-nav"><a href="blog.html"><span>view all</span></a></li>-->
+	                                <!--<li class="menu-level-2 more-nav"><a href="product-list.php"><span>view all</span></a></li>-->
 	                            </ul>
 							</li>                                      
 	                    </ul>

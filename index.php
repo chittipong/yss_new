@@ -103,21 +103,74 @@ echo $_SESSION['sess_lang'];
 
 <!-- middle -->
     <?php include ("common/inc_search_box1.php");?>
-	
+	<div align="center" style="background:#F5F5F5;"><img src="images/page-break.png" alt=""/></div>
+    
 	<div class="middle_row row_light_gray">
-	  <div class="container clearfix">  
+    	<div class="container clearfix"> 
+    		<div class="col col_2_3  alpha">
+            <div class="row clearfix">
+	                   <div class="col col_2_3  alpha">
+	                    <div class="inner">
+                        	<div class="video_frame" style="margin-bottom:20px;">
+                            	<iframe width="600" height="400" src="https://www.youtube.com/embed/49y-1Rd2CXw" 
+                                frameborder="0" allowfullscreen></iframe>
+                            </div>
+                            
+	                    <!--<h3>WELLCOME TO YSS</h3>
+	                    <p>YSS ผู้ผลิตและพัฒนาโช้คอัพรถมอเตร์ไซค์และรถยนต์ที่เปี่ยมไปด้วยคุณภาพระดับโลก ด้วยเทคโนโลยีที่มีประสิทธิภาพสูง สร้างความคุ้มค่าสำหรับลูกค้า
+	                    </p>-->
+                        </div>
+	                    </div>
+
+	                </div>
+                    
+      			<?php include("inc/inc_product_new_list1.php") ?>
+                
+                <?php //include("inc/inc_product_hot_list1.php") ?>
+            </div>
+            <div class="col col_1_3  alpha">
+            	<div style="margin:0 0 20px 0">
+       	    		<ul id="sidebar-banner">
+                    	<li><a href="technology.php"><img src="images/right_side_bar_03.jpg" alt=""/></a></li>
+                        <li><a href="services.php"><img src="images/right_side_bar_05.jpg" alt=""/></a></li>
+                        <li><a href="video.php"><img src="images/right_side_bar_13.jpg" alt=""/></a></li>
+                        <li><a href="award.php"><img src="images/right_side_bar_16.jpg" alt=""/></a></li>
+                    </ul>
+                </div>
+                
+            	<?php include("inc/inc_news_list1.php"); ?>
+                
+                <!--FACEBOOK LIKEBOX-->
+              <div class="fb-page" data-href="https://www.facebook.com/YSS-THAiLAND-116671795029359/" data-height="300" data-small-header="true" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"></div>
+                <!--END FACEBOOK LIKEBOX-->
+            </div>
+         </div>
+         
+	  <!--<div class="container clearfix">  -->
+      		
 	    <!-- week offer -->
-            	<?php include("common/inc_week_offers.php"); ?>
+            	<?php //include("common/inc_week_offers.php"); ?>
             <!--/ week offer -->
             <!-- special offer -->
-                 <?php include("common/inc_special_offers.php"); ?>
+                 <?php //include("common/inc_special_offers.php"); ?>
             <!--/ special offer -->	            	
-		</div>	
+		<!--</div>-->
+        	
+      </div>
+      
+      <div class="middle_row latest_offers" style="background:url(images/bg/bg_001.jpg) no-repeat">
+		<div class="container clearfix"> 
+       	  <?php include("inc/inc_news_event_list1.php") ?>
+       	  <?php  //include("inc/inc_event_list1.php") ?>
+            
         </div>
+      </div>
+      <div align="center" style="background:#F5F5F5;"><img src="images/page-break.png" alt=""/></div>
+      
 	</div>
 
     <!-- latest_offers -->
-		<?php include("common/inc_news_event.php"); ?>
+		<?php //include("common/inc_news_event.php"); ?>
     <!--/ latest_offers -->
     
     <!-- car types -->
@@ -144,3 +197,15 @@ echo $_SESSION['sess_lang'];
 </div>
 </body>
 </html>
+
+
+<!--FACEBOOK-->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v2.5";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!--END FACEBOOK-->
