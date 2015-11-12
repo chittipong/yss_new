@@ -121,8 +121,9 @@ echo $_SESSION['sess_lang'];
 	                    </p>-->
                         </div>
 	                    </div>
-
 	                </div>
+                    
+                 <div align="center" style="background:#F5F5F5;"><img src="images/page-break.png" alt=""/></div>
                     
       			<?php include("inc/inc_product_new_list1.php") ?>
                 

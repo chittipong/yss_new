@@ -299,3 +299,23 @@ ul#sidebar-banner li{
 .offer_specification li .spec_value {
     color: #DA0001;
 }
+.myGradient1{
+	/* IE10+ */ 
+background-image: -ms-linear-gradient(top, #ffffff 0%, #F6F6F6 47%, #ededed 100%);
+
+/* Mozilla Firefox */ 
+background-image: -moz-linear-gradient(top, #ffffff 0%, #F6F6F6 47%, #ededed 100%);
+
+/* Opera */ 
+background-image: -o-linear-gradient(top, #ffffff 0%, #F6F6F6 47%, #ededed 100%);
+
+/* Webkit (Safari/Chrome 10) */ 
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(47, #F6F6F6), color-stop(100, #ededed));
+
+/* Webkit (Chrome 11+) */ 
+background-image: -webkit-linear-gradient(top, #ffffff 0%, #F6F6F6 47%, #ededed 100%);
+
+/* W3C Markup */ 
+background-image: linear-gradient(to bottom, #ffffff 0%, #F6F6F6 47%, #ededed 100%);
+
+}

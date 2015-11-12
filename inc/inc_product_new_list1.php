@@ -29,10 +29,10 @@
 		}
 ?>
     <div class="col col_1_4 alpha" style="width:190px;">
-         <p>
+         <p class="myGradient1">
          	<a href="product-detail.php?id=<?php echo $p_id ?>">
             	<img src="images/products/large/<?php echo $p_image ?>" alt="" class="frame_center">
-            	<h4><?php echo $p_code ?></h4> 
+            	<h4 align="center"><?php echo $p_code ?></h4> 
             </a>
             <?php echo $p_title ?>
          </p>
