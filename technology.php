@@ -22,23 +22,24 @@ echo $_SESSION['sess_lang'];
 	$myMenu->__construc($lang,$conn);
 
 //GET PAGE INFO=========================
-	$page_title=$myFn->getPageInfo($conn,'title','quality',$lang);
-	$page_keyword=$myFn->getPageInfo($conn,'keyword','quality',$lang);
-	$page_desc=$myFn->getPageInfo($conn,'description','quality',$lang);
+	$page_title=$myFn->getPageInfo($conn,'title','technology',$lang);
+	$page_keyword=$myFn->getPageInfo($conn,'keyword','technology',$lang);
+	$page_desc=$myFn->getPageInfo($conn,'description','technology',$lang);
+
 
 //GET SHOT WORD==========================
-	$txt_quality=$myFn->getWord($conn,'quality',$lang);
+	$txt_technology=$myFn->getWord($conn,'technology',$lang);
 ?>
-<!--=========================START GET AND DISPLAY CONTENT=================================-->
+
 <?php
 //GET CONTENT BY LANGUAGE================
 	if($lang=='TH'){
-		$sql="SELECT *  FROM yss_content WHERE lang='TH' AND page='6' ORDER BY sort_order ASC";
+		$sql="SELECT *  FROM yss_content WHERE lang='TH' AND page='24' ORDER BY sort_order ASC";
 	}
 	if($lang=='EN'){
-		$sql="SELECT *  FROM yss_content WHERE lang='EN' AND page='6' ORDER BY sort_order ASC";
+		$sql="SELECT *  FROM yss_content WHERE lang='EN' AND page='24' ORDER BY sort_order ASC";
 	}else{
-		$sql="SELECT *  FROM yss_content WHERE lang='TH' AND page='6' ORDER BY sort_order ASC";
+		$sql="SELECT *  FROM yss_content WHERE lang='TH' AND page='24' ORDER BY sort_order ASC";
 	}
 		
 		$rs=mysqli_query($conn,$sql);
@@ -53,7 +54,6 @@ echo $_SESSION['sess_lang'];
 			$dataArray['layout'][]=$data['layout'];
 		}
 ?>
-
 <!doctype html>
 <!--[if lt IE 7 ]><html lang="en" class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]><html lang="en" class="no-js ie7"> <![endif]-->
@@ -103,17 +103,19 @@ echo $_SESSION['sess_lang'];
 <!-- header top bar -->    
 	<?php include ("common/inc_headertop.php");?>
 <!--/ header top bar -->
-		
-<div class="header header_thin" style="background-image:url(images/contents/banner_factory04.jpg)">
+
+<!--Head-->
+<div class="header header_thin" style="background-image:url(images/rnd/B189.jpg)">
 	<div class="header_title">
-    	<h1 class="yssfont01"><span><?php echo $txt_quality ?></span></h1>
+    	<h1 class="yssfont01"><span><?php echo $txt_technology ?></span></h1>
     </div>
 </div>
+<!--/Head-->
 
-	<!-- breadcrumbs -->
+<!-- breadcrumbs -->
 <div class="middle_row row_white breadcrumbs">
     <div class="container">
-        <p><a href="index.php">Home</a>  <span class="separator">&rsaquo;</span><span class="current">Quality</span></p>
+        <p><a href="index.php">Home</a>  <span class="separator">&rsaquo;</span><span class="current">Technology</span></p>
     </div>
 </div>
 <!--/ breadcrumbs -->
@@ -139,6 +141,10 @@ echo $_SESSION['sess_lang'];
 					
 					if($dataArray['layout'][$i]=='TOP_PIC'){
 						include('content_layout/inc_top_pic.php');
+					}
+					
+					if($dataArray['layout'][$i]=='ONLY_TEXT'){
+						include('content_layout/inc_only_text.php');
 					}
 				}
 				//END LOOP DISPLAY CONTENT=============================

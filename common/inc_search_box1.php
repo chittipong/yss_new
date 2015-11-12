@@ -8,7 +8,7 @@
 	$pdTypeArray=$myFn->getProductTypeList($conn);				//Get Product Type
 ?>
 
-<div class="middle_row row_white search_row">
+<div class="middle_row row_white search_row" style="background:url(images/bg/bg_001.jpg)">
 		<div class="container">
         <h1 style="color:#C70000;"><i class="fa fa-search"></i><?php echo $txt_qsearch ?> </h1>
 			<form action="product-list.php" class="search_form advsearch_hide clearfix">

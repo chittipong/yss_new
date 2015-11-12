@@ -42,7 +42,10 @@ $sql="SELECT * FROM yss_config WHERE id='1' LIMIT 1";
                 <li><a href="rnd.php"><span><?php echo $menu_rnd ?></span></a></li>
                 <li><a href="quality.php"><span><?php echo $menu_quality ?></span></a></li>
                 <li><a href="csr.php"><span><?php echo $menu_csr ?></span></a></li>
-                <li><a href="award.php"><span><?php echo $menu_award ?></span></a></li>                               
+                <li><a href="award.php"><span><?php echo $menu_award ?></span></a></li>  
+                <li><a href="joinus.php"><span><?php echo $menu_joinus ?></span></a></li>   
+                <li><a href="technology.php"><span><?php echo $menu_technology ?></span></a></li> 
+                <li><a href="video.php"><span><?php echo $menu_video ?></span></a></li>                            
             </ul>
         </div>
         <!--/ footer col 1 -->
@@ -66,9 +69,6 @@ $sql="SELECT * FROM yss_config WHERE id='1' LIMIT 1";
             	<li><a href="support.php"><span><?php echo $menu_support ?></span></a></li>
                 <li><a href="product-code.php"><span><?php echo $menu_pdCode ?></span></a></li>
                 <li><a href="spring-code.php"><span><?php echo $menu_spCode ?></span></a></li>
-                <li><a href="#"><span><?php echo $menu_policy ?></span></a></li> 
-                <li><a href="faq.php"><span><?php echo $menu_faq ?></span></a></li>
-                <li><a href="sitemap.php"><span><?php echo $menu_sitemap ?></span></a></li>
             </ul>
         </div>        
         <!--/ footer col 3 -->

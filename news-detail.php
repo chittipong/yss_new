@@ -39,7 +39,7 @@ echo $_SESSION['sess_lang'];
 	$rid=isset($_GET['id'])? $_GET['id']:null;
 	
 	if(!empty($rid)){
-		$sql="SELECT n.id,n.pic AS main_pic, n.sort_order,n.`type`,n.date_create,d.title,d.detail,d.pic,d.lang 
+		$sql="SELECT n.id,n.pic AS main_pic, n.video, n.sort_order,n.`type`,n.date_create,d.title,d.detail,d.pic,d.lang 
 		FROM yss_news n,yss_news_detail d WHERE n.id=d.news_id AND n.id='$rid' LIMIT 1";	
 	}else{
 		echo "Cannot get reference ID"; exit();
@@ -52,6 +52,7 @@ echo $_SESSION['sess_lang'];
 		$title=$data['title'];
 		$detail=$data['detail'];
 		$mainPic=$data['main_pic'];	
+		$video=$data['video'];
 		$type=$data['type'];
 		$dateCreate=$data['date_create'];
 ?>
@@ -135,7 +136,15 @@ echo $_SESSION['sess_lang'];
                 </div>
                 <div class="post-aside clearfix">
                     <div class="post-image"><a href="#" hidefocus="true" style="outline: none;">
-                    <img src="images/news/<?php echo $mainPic ?>" alt="" style="padding:10px; width: 98%;"></a></div>                                      
+                    	<img src="images/news/<?php echo $mainPic ?>" alt="" style="padding:10px; width: 98%;"></a>
+                    </div> 
+                    <?php 
+						//Display Video--------------
+						if(!empty($video)){ 
+							echo "<h5 align='center'>Video Clip</h5>";  
+							echo '<div class="video" align="center">'.$video.'</div>';        
+                     	} 
+                    ?>                    
                     
                     <div class="post-meta">
                     	<div class="post-share"><span>Share:</span> <a href="#" class="share_google" hidefocus="true" style="outline: none; opacity: 1;">Google +1</a> <a href="#" class="share_facebook" hidefocus="true" style="outline: none; opacity: 1;">Facebook</a> <a href="#" class="share_twitter" hidefocus="true" style="outline: none; opacity: 1;">Twitter</a></div>
@@ -158,6 +167,7 @@ echo $_SESSION['sess_lang'];
 									$detailArray['title'][]=$data['title'];
 									$detailArray['detail'][]=$data['detail'];
 									$detailArray['pic'][]=$data['pic'];
+									$detailArray['video'][]=$data['video'];
 								}
 						?>
                         <?php
@@ -167,6 +177,13 @@ echo $_SESSION['sess_lang'];
                             	<img src="images/news/<?php echo $detailArray['pic'][$i] ?>" alt="" style="padding:10px;">
                             	<h2><?php echo $detailArray['title'][$i] ?></h2>
                             	<p><?php echo $detailArray['detail'][$i] ?></p>
+									<?php 
+									//Display Video--------------
+                                        if(!empty($detailArray['video'][$i])){ 
+                                            echo "<h5 align='center'>Video Clip</h5>";
+										   	echo '<div class="video" align="center">'.$detailArray['video'][$i].'</div>';
+                                        } 
+                                    ?>   
                         <?php } } ?>
                     </div>    
                 </div>               

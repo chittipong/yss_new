@@ -290,9 +290,9 @@ echo $_SESSION['sess_lang'];
                 
                 	<?php 
 							//===================SHOW COMPRESSION DETAIL===================
-							echo "Compression: ".$compress;
+							//echo "Compression: ".$compress;
 								if($compress=="C"){
-									$compressImg="cccccc.jpg";
+									$compressImg="compress_c.jpg";
 								}
 								if($compress=="W"){
 									$compressImg="compress_w.jpg";
@@ -316,21 +316,21 @@ echo $_SESSION['sess_lang'];
                     
                     <?php 
 							//===================SHOW PRELOAD DETAIL===================
-								echo "Preload: ".$preload;
+								//echo "Preload: ".$preload;
 									if($preload=="P"){
-										$preloadImg="pppppp.jpg";
+										$preloadImg="preload_p.jpg";
 									}
 									if($preload=="T"){
 										$preloadImg="preload_t.jpg";
 									}
 									if($preload=="H"){
-										$preloadImg="hhhhhhh.jpg";
+										$preloadImg="preload_h.jpg";
 									}
 									if($preload=="H1"){
-										$preloadImg="hhhh1.jpg";
+										$preloadImg="preload_h1.jpg";
 									}
 								
-							if($preload=="T"){
+							if(!empty($preload) && $preload!="-"){
 					?>
                         <div class="col col_1_2  omega">
                             <div class="inner">
@@ -341,12 +341,12 @@ echo $_SESSION['sess_lang'];
                                 </p>
                             </div>
                         </div>
-                    <?php }//end*** ?>
                     
+                    <?php } ?>
                     
                     <?php 
 					//===================SHOW REBOUND DETAIL===================
-						echo "Rebound: ".$rebound;
+						///echo "Rebound: ".$rebound;
 						if($rebound=="Y"){
 					?>
                         <div class="col col_1_2  omega">
@@ -356,14 +356,14 @@ echo $_SESSION['sess_lang'];
                                         <img src='images/feature/rebound_adjuster.jpg'  class='alignleft'/>
                                          <?php echo $rebound_detail ?>
                                     </p>
-                                    <div class="divider_space_thin"></div>';
+                                    <div class="divider_space_thin"></div>
                             </div>
                         </div>
                       <?php }//end*** ?>
                     
                     <?php 
 						//=========SHOW PRELOAD DETAIL===================
-						echo "Length Adjust: ".$lengthAdjust;
+						//echo "Length Adjust: ".$lengthAdjust;
 						if($lengthAdjust=="Y"){
 					?>
                     <div class="col col_1_2  omega">

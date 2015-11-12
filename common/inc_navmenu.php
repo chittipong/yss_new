@@ -22,6 +22,9 @@
 	$menu_sitemap=$myMenu->getMenu('sitemap');
 	$menu_product=$myMenu->getMenu('product');
 	$menu_joinus=$myMenu->getMenu('joinus');
+	$menu_video=$myMenu->getMenu('video');
+	$menu_technology=$myMenu->getMenu('technology');
+	
 //END===============================================================
 ?>
 

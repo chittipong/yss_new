@@ -290,3 +290,12 @@ ul#sidebar-banner li{
     float: left;
     margin: 4px;
 }
+
+.offer_list .offer_item h2 a {
+    color: #5A5A5A;
+    font-size: 22px;
+}
+
+.offer_specification li .spec_value {
+    color: #DA0001;
+}

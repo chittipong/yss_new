@@ -22,36 +22,13 @@ echo $_SESSION['sess_lang'];
 	$myMenu->__construc($lang,$conn);
 
 //GET PAGE INFO=========================
-	$page_title=$myFn->getPageInfo($conn,'title','quality',$lang);
-	$page_keyword=$myFn->getPageInfo($conn,'keyword','quality',$lang);
-	$page_desc=$myFn->getPageInfo($conn,'description','quality',$lang);
+	$page_title=$myFn->getPageInfo($conn,'title','video',$lang);
+	$page_keyword=$myFn->getPageInfo($conn,'keyword','video',$lang);
+	$page_desc=$myFn->getPageInfo($conn,'description','video',$lang);
+
 
 //GET SHOT WORD==========================
-	$txt_quality=$myFn->getWord($conn,'quality',$lang);
-?>
-<!--=========================START GET AND DISPLAY CONTENT=================================-->
-<?php
-//GET CONTENT BY LANGUAGE================
-	if($lang=='TH'){
-		$sql="SELECT *  FROM yss_content WHERE lang='TH' AND page='6' ORDER BY sort_order ASC";
-	}
-	if($lang=='EN'){
-		$sql="SELECT *  FROM yss_content WHERE lang='EN' AND page='6' ORDER BY sort_order ASC";
-	}else{
-		$sql="SELECT *  FROM yss_content WHERE lang='TH' AND page='6' ORDER BY sort_order ASC";
-	}
-		
-		$rs=mysqli_query($conn,$sql);
-		$dataArray=array();
-		
-		while($data=mysqli_fetch_assoc($rs)){
-			$dataArray['id'][]=$data['id'];
-			$dataArray['title'][]=$data['title'];
-			$dataArray['detail'][]=$data['detail'];
-			$dataArray['pic'][]=$data['pic'];
-			$dataArray['pic_title'][]=$data['pic_title'];	
-			$dataArray['layout'][]=$data['layout'];
-		}
+	$txt_video=$myFn->getWord($conn,'video',$lang);
 ?>
 
 <!doctype html>
@@ -103,55 +80,33 @@ echo $_SESSION['sess_lang'];
 <!-- header top bar -->    
 	<?php include ("common/inc_headertop.php");?>
 <!--/ header top bar -->
-		
-<div class="header header_thin" style="background-image:url(images/contents/banner_factory04.jpg)">
+
+<!--Head-->
+<div class="header header_thin" style="background-image:url(images/rnd/B189.jpg)">
 	<div class="header_title">
-    	<h1 class="yssfont01"><span><?php echo $txt_quality ?></span></h1>
+    	<h1 class="yssfont01"><span><?php echo $txt_video ?></span></h1>
     </div>
 </div>
+<!--/Head-->
 
-	<!-- breadcrumbs -->
+<!-- breadcrumbs -->
 <div class="middle_row row_white breadcrumbs">
     <div class="container">
-        <p><a href="index.php">Home</a>  <span class="separator">&rsaquo;</span><span class="current">Quality</span></p>
+        <p><a href="index.php">Home</a>  <span class="separator">&rsaquo;</span><span class="current">Videos</span></p>
     </div>
 </div>
 <!--/ breadcrumbs -->
 
-<!-- middle -->   
+<!--CONTENT-->
 <div id="middle" class="full_width">
-	<div class="container clearfix">  
+	<div class="container clearfix">      
 		<!-- content -->
         <div class="content">   
-        <div class="divider_space_thin"></div>         
-            <div class="entry">
-            <?php
-				//LOOP DISPLAY CONTENT================================
-				$c=count($dataArray['id']);
-				for($i=0;$i<$c;$i++){
-					if($dataArray['layout'][$i]=='LEFT_PIC'){
-						include('content_layout/inc_left_pic.php');
-					}
-					
-					if($dataArray['layout'][$i]=='RIGHT_PIC'){
-						include('content_layout/inc_right_pic.php');
-					}
-					
-					if($dataArray['layout'][$i]=='TOP_PIC'){
-						include('content_layout/inc_top_pic.php');
-					}
-				}
-				//END LOOP DISPLAY CONTENT=============================
-			?>
-              <div class="divider_space_thin"></div>
-		  </div>                
-        </div>
-        <!--/ content -->
-        
-    </div>
+			 Your content...
+    	</div>
+  	</div>
 </div>
-<!--/ middle -->
-<!--============================END CONTENT===================================-->
+<!--END CONTENT-->
 
 <!-- Footer-->
 <?php include ("common/inc_footer.php");?>

@@ -1580,7 +1580,7 @@ p.wp-caption-text, .frame_caption {
 	padding:1px 0;}
 
 .middle_row.row_white {
-	background:#fff url(../images/bg/bg_001.jpg);
+	background:#fff;
 }
 
 .middle_row.row_light_gray {
@@ -5255,7 +5255,7 @@ input.btn-submit,
 	
 .offer_details .offer_price strong {
 	font-size:29px;
-	color:#f1541e}
+	color:#ee2324}
 
 .offer_details .offer_price em {
 	color:#3f4b56;}
@@ -5318,8 +5318,8 @@ input.btn-submit,
 	font-size:14px;}
 
 .details_tabs .tabs{
-	background:#f25a23;
-	text-shadow:0 1px 1px #fff;
+	background:#DA0001;
+	/*text-shadow:0 1px 1px #fff;*/
 	border-radius:3px 3px 0 0;
 	-webkit-border-radius:3px 3px 0 0;
 	border-left:1px solid #e0e4e7;
@@ -5337,14 +5337,14 @@ input.btn-submit,
 	padding-right:2px}
 
 .details_tabs .tabs li a {
-	color:#3f4b56;
+	color:#fff;
 	line-height:61px;
 	min-width:180px;
 	padding:0;
 	text-align:center;}
 
 .details_tabs .tabs li a:hover{
-	background:#333;
+	background:#222020;
 	color:#fff;
 	text-shadow: none;}
 
