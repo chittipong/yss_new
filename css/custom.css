@@ -301,21 +301,30 @@ ul#sidebar-banner li{
 }
 .myGradient1{
 	/* IE10+ */ 
-background-image: -ms-linear-gradient(top, #ffffff 0%, #F6F6F6 47%, #ededed 100%);
+	background-image: -ms-linear-gradient(top, #ffffff 0%, #F6F6F6 47%, #ededed 100%);
+	
+	/* Mozilla Firefox */ 
+	background-image: -moz-linear-gradient(top, #ffffff 0%, #F6F6F6 47%, #ededed 100%);
+	
+	/* Opera */ 
+	background-image: -o-linear-gradient(top, #ffffff 0%, #F6F6F6 47%, #ededed 100%);
+	
+	/* Webkit (Safari/Chrome 10) */ 
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(47, #F6F6F6), color-stop(100, #ededed));
+	
+	/* Webkit (Chrome 11+) */ 
+	background-image: -webkit-linear-gradient(top, #ffffff 0%, #F6F6F6 47%, #ededed 100%);
+	
+	/* W3C Markup */ 
+	background-image: linear-gradient(to bottom, #ffffff 0%, #F6F6F6 47%, #ededed 100%);
+}
 
-/* Mozilla Firefox */ 
-background-image: -moz-linear-gradient(top, #ffffff 0%, #F6F6F6 47%, #ededed 100%);
-
-/* Opera */ 
-background-image: -o-linear-gradient(top, #ffffff 0%, #F6F6F6 47%, #ededed 100%);
-
-/* Webkit (Safari/Chrome 10) */ 
-background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(47, #F6F6F6), color-stop(100, #ededed));
-
-/* Webkit (Chrome 11+) */ 
-background-image: -webkit-linear-gradient(top, #ffffff 0%, #F6F6F6 47%, #ededed 100%);
-
-/* W3C Markup */ 
-background-image: linear-gradient(to bottom, #ffffff 0%, #F6F6F6 47%, #ededed 100%);
-
+.video-thumb{
+	border: 6px solid #FFFFFF; 
+	box-shadow: 4px 4px 4px #C3C3C3; 
+	margin:0 0 20px 0;
+}
+.video-thumb img{
+	height:160px !important;
+	width:100%;
 }

@@ -12,7 +12,7 @@ if(isset($_SESSION['sess_lang'])==""){
 }
 //GET LANGUAGE==========================
 $lang=$_SESSION['sess_lang'];			
-echo $_SESSION['sess_lang'];
+//echo $_SESSION['sess_lang'];
 
 //CONNECT DATABASE=======================
 	$conn=connectDb();
@@ -33,17 +33,20 @@ echo $_SESSION['sess_lang'];
 
 <?php
 //echo print_r($conn);
-$sql="SELECT * FROM yss_jobs";
+$sql="SELECT * FROM yss_brand GROUP BY brand ORDER BY brand ASC";
 $rs=mysqli_query($conn,$sql) or die(mysql_error());
 $n=mysqli_num_rows($rs);
 
-echo count($n);
-
 while($data=mysqli_fetch_assoc($rs)){
-	$id=$data['id'];
-	$title=$data['job_position'];
+	$id=$data['brand_id'];
+	$brand=$data['brand'];
+	$logo=$data['logo'];
+	$popular=$data['popular'];
+	$brand_list=$data['brand_list'];
+	$sort_order=$data['sort_order'];
 	
-	echo $id."<br/>";
-	echo $title;
+	echo "<br/>";
+	echo $brand;
+	
 }
 ?>

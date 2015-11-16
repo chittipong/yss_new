@@ -161,7 +161,8 @@ echo $_SESSION['sess_lang'];
       
       <div class="middle_row latest_offers" style="background:url(images/bg/bg_001.jpg)">
 		<div class="container clearfix"> 
-       	  <?php include("inc/inc_news_event_list1.php") ?>
+          <?php include("inc/inc_video_list2.php") ?>
+       	  <?php //include("inc/inc_news_event_list1.php") ?>
        	  <?php  //include("inc/inc_event_list1.php") ?>
             
         </div>

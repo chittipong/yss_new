@@ -15,7 +15,7 @@
 ?>
 
 <?php
-$con = mysqli_connect("localhost","root","root","db_yss_new");
+$con = mysqli_connect("localhost","root","root","yss_new_db");
 
 // Check connection
 if (mysqli_connect_errno())

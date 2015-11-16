@@ -5,8 +5,10 @@ session_start();
 include("class/connect_db.php");
 include("class/Mymenu.php");
 include("class/MyFunction.php");
+include("class/class_DateTime.php");
+include("class/class_pager.php");
 	
-//CHECK LANGUAGE=========================
+//CHECK LANGUAGE========================
 if(isset($_SESSION['sess_lang'])==""){
 	$_SESSION['sess_lang']='TH';
 }
@@ -14,10 +16,11 @@ if(isset($_SESSION['sess_lang'])==""){
 $lang=$_SESSION['sess_lang'];			
 echo $_SESSION['sess_lang'];
 
-//CONNECT DATABASE=======================
+//CONNECT DATABASE======================
 	$conn=connectDb();
 	$myMenu=new Mymenu();
 	$myFn=new MyFunction();
+	$myDate=new DateTimePattern();
 	
 	$myMenu->__construc($lang,$conn);
 
@@ -30,7 +33,6 @@ echo $_SESSION['sess_lang'];
 //GET SHOT WORD==========================
 	$txt_video=$myFn->getWord($conn,'video',$lang);
 ?>
-
 <!doctype html>
 <!--[if lt IE 7 ]><html lang="en" class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]><html lang="en" class="no-js ie7"> <![endif]-->
@@ -52,6 +54,9 @@ echo $_SESSION['sess_lang'];
 <!-- custom CSS -->
 <link href="css/custom.css" media="screen" rel="stylesheet">
 
+<!-- custom CSS -->
+<link href="css/pager_style.css" media="screen" rel="stylesheet">
+
 <!-- main JS libs  -->
 <script src="js/libs/modernizr.min.js"></script>
 <script src="js/libs/respond.min.js"></script>					 
@@ -67,6 +72,7 @@ echo $_SESSION['sess_lang'];
 <!-- styled select -->
 <link rel="stylesheet" href="css/cusel.css">
 <script src="js/cusel-min.js"></script>
+
 
 <link href="rs-plugin/css/settings.css" media="screen" rel="stylesheet">
 <script src="rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
@@ -102,7 +108,9 @@ echo $_SESSION['sess_lang'];
 	<div class="container clearfix">      
 		<!-- content -->
         <div class="content">   
-			 Your content...
+			 <div class="row clearfix">
+			  	<?php include ("inc/inc_video_list1.php");?>
+			</div>
     	</div>
   	</div>
 </div>
@@ -115,3 +123,4 @@ echo $_SESSION['sess_lang'];
 </div>
 </body>
 </html>
+

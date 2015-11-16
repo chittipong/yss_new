@@ -2,7 +2,8 @@
 include "dbconfig2.php";
 
 //GET PRODUCT CODE TO UPDATE TO FILENAME******
-$sql="SELECT * FROM application_list";
+//$sql="SELECT * FROM application_list WHERE ";
+$sql="SELECT id,product_code FROM application_list WHERE id BETWEEN 17001 AND 17505";
 $rs=mysqli_query($con,$sql);
 
 $myArray=[];

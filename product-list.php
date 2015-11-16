@@ -7,8 +7,6 @@ include("class/Mymenu.php");
 include("class/MyFunction.php");
 include("class/class_DateTime.php");
 include("class/class_pager.php");
-
-//include("class/Pager.php");
 	
 //CHECK LANGUAGE=========================
 if(isset($_SESSION['sess_lang'])==""){
@@ -23,8 +21,6 @@ echo $_SESSION['sess_lang'];
 	$myMenu=new Mymenu();
 	$myFn=new MyFunction();
 	$myDate=new DateTimePattern();
-	//$myPager=new Pager();
-	
 	
 	$myMenu->__construc($lang,$conn);
 

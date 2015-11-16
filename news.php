@@ -103,6 +103,7 @@ echo $_SESSION['sess_lang'];
 <!-- carousel -->
 <script src="js/jquery.carouFredSel.min.js"></script>
 <script src="js/jquery.touchSwipe.min.js"></script>
+
 <!-- styled select -->
 <link rel="stylesheet" href="css/cusel.css">
 <script src="js/cusel-min.js"></script>
