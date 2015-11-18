@@ -113,7 +113,8 @@ echo $_SESSION['sess_lang'];
 		//CHECK IMAGE AVARIABLE================
 			$chkPic='images/products/large/'.$main_pic;	
 			if(!file_exists($chkPic)){
-				$main_pic='no-photo3.jpg';
+				//$main_pic='no-photo3.jpg';
+				$main_pic='t_detail_400px.jpg';
 			}	
 			
 			
@@ -135,6 +136,9 @@ echo $_SESSION['sess_lang'];
 
 		//SET LENGTH AJUSTER ICON FOR DISPLAY===================
 			$lengthAdjus_icon=$myFn->getLengthAdjustIcon($lengthAdjust);
+			
+		//GET DESCRIPTION=======================
+			$product_description=$myFn->getDescription($conn,$product_group,$lang);
 			
 ?>
 
@@ -255,9 +259,9 @@ echo $_SESSION['sess_lang'];
                     </div>
                     
                     <div class="offer_descr">
-                        <p>
-                        	Description....
-                        </p>
+                        <h3>
+                        	<?php echo $product_description ?>
+                        </h3>
                     </div>
                     
                     <div class="offer_specification">

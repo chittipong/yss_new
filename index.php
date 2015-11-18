@@ -41,6 +41,12 @@ echo $_SESSION['sess_lang'];
 	$txt_mostpop=$myFn->getWord($conn,'most_pop_brands',$lang);
 	$txt_view_bigermap=$myFn->getWord($conn,'view_biger_map',$lang);
 	$txt_vehicle_type=$myFn->getWord($conn,'vehicle_type',$lang);
+	$txt_year=$myFn->getWord($conn,'year',$lang);
+	
+	$txt_newProduct=$myFn->getWord($conn,'new_product',$lang);
+	$txt_news=$myFn->getWord($conn,'news',$lang);
+	$txt_video=$myFn->getWord($conn,'video',$lang);
+	$txt_ourproduct=$myFn->getWord($conn,'our_product',$lang);
 ?>
 
 

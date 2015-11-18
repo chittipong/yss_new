@@ -2,7 +2,7 @@
 //============================= SET SEARCH CONDITION======================================
 	$condition="";
 	
-	//GET SEARCH BY POPULAR BRAND-----
+	//GET SEARCH FROM POPULAR BRAND-----
 		$search_brand=isset($_GET['brand']) ? $_GET['brand']:null;
 			if(!empty($search_brand)){
 				$condition="WHERE p.brand_id LIKE '$search_brand'";
@@ -45,7 +45,6 @@
 				}
 				
 				
-				
 				//SET VEHICLE------------------------
 				//echo "total Vehicle=".count($search_vehicle); 
 				//print_r($search_vehicle); exit();
@@ -53,16 +52,18 @@
 				if(!empty($search_vehicle)){
 					$n=count($search_vehicle);
 					$txt="";
+					$var="";
 					
 						for($i=0;$i<$n;$i++){
 							if($i<($n-1)){
-								$txt.=" p.vehicle_type='$search_vehicle[$i]' OR ";
+								$var.=$search_vehicle[$i].',';
 							}else{
-								$txt.=" p.vehicle_type='$search_vehicle[$i]' ";
+								$var.=$search_vehicle[$i];
 							}
 						}
-					
-					$searchArray[]=$txt;		//Set to array***
+						
+					$txt.=" p.vehicle_type IN($var)";
+					$searchArray[]=$txt;							//Set to array***
 				}//end set vehicle***
 			
 			//SET STRING CONDITION--------------------
@@ -142,9 +143,9 @@
 <?php 
 	if($num>0){
 ?> 
-<p style="margin:0 0 20px 0; text-align:right; color:#8F8F8F;">
-	<i class="fa fa-search fa-1x"></i> Total Result: <?php echo $num ?> Record
-</p>
+    <p style="margin:0 0 20px 0; text-align:right; font-style:italic; font-size: 18px; color:#7D7D7D">
+        <i class="fa fa-search fa-1x"></i> Total Result: <?php echo $num ?> Record
+    </p>	
 <?php }else{ ?>
     <div class="frame_quote">               
         <blockquote style="text-align:center;"><i class="fa fa-search fa-2x"></i>   No records found </blockquote>  
@@ -188,7 +189,8 @@
 				//CHECK PIC AVARIABLE=============
 					$chkPic='images/products/large/'.$pic;
 					if(!file_exists($chkPic)){
-						$pic='no-photo.jpg';
+						//$pic='no-photo.jpg';
+						$pic='t_detail_270px.jpg';
 					}
 					
 				//GET BRAND NAME=========================
@@ -208,7 +210,7 @@
 		
 				//SET LENGTH AJUSTER ICON FOR DISPLAY===================
 					$lengthAdjus_icon=$myFn->getLengthAdjustIcon($lengthAdjust);
-					
+
         ?>
       		<div class="offer_item clearfix">
             	<div class="offer_image">

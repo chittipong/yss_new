@@ -1,6 +1,6 @@
 <h1 class="yssfont01 head-style-01">
 	<span style="float:left;"><img src="images/box-header-01.png"/></span>
-	<div class="middle">Videos</div>
+	<div class="middle"><?php echo $txt_video ?></div>
 	<span><img src="images/box-header-02.png"/></span>
 </h1>
 

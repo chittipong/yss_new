@@ -24,6 +24,7 @@ echo $_SESSION['sess_lang'];
 	
 	$myMenu->__construc($lang,$conn);
 
+	$ccArray=$myFn->getCcList($conn);
 //GET PAGE INFO=========================
 	$page_title=$myFn->getPageInfo($conn,'title','product',$lang);
 	$page_keyword=$myFn->getPageInfo($conn,'keyword','product',$lang);
@@ -31,10 +32,20 @@ echo $_SESSION['sess_lang'];
 
 
 //GET SHOT WORD==========================
+	$txt_select_brand=$myFn->getWord($conn,'select_brand',$lang);
+	$txt_select_model=$myFn->getWord($conn,'select_model',$lang);
+	$txt_cc=$myFn->getWord($conn,'cc',$lang);
+	$txt_category=$myFn->getWord($conn,'category',$lang);
+	$txt_search=$myFn->getWord($conn,'search',$lang);
+	$txt_vehicle_type=$myFn->getWord($conn,'vehicle_type',$lang);
+	$txt_year=$myFn->getWord($conn,'year',$lang);
+	$txt_adjust_search=$myFn->getWord($conn,'adjust_search',$lang);
+	$txt_price_range=$myFn->getWord($conn,'price_range',$lang);
+	
 	$txt_product=$myFn->getWord($conn,'product',$lang);
 	$txt_mostpop=$myFn->getWord($conn,'most_pop_brands',$lang);
 	$txt_viewall=$myFn->getWord($conn,'view_all',$lang);
-
+	
 ?>
 
 <!doctype html>

@@ -1,22 +1,33 @@
 <?php
 include "dbconfig2.php";
 
-$sql="SELECT * FROM yss_product";
+//$sql="SELECT product_id,code FROM yss_product";
 $rs=mysqli_query($con,$sql);
 
-$modelArray=array();
+$dataArray=array();
 
 while($data=mysqli_fetch_assoc($rs)){
-		$id=$data['product_id'];
-		$modelArray[]=$id;
+	$id=$data['product_id'];
+	$code=$data['code'];
+	$dataArray['id'][]=$id;
+	$dataArray['code'][]=$code;
+	
+	
 }//end while***
 
-//print_r($sqlArray);
 
-$c=count($modelArray);
+$c=count($dataArray['id']);
 
 for($i=0;$i<$c;$i++){
-	$sql="UPDATE yss_product SET model_id='$modelArray[$i]' WHERE product_id='$modelArray[$i]'";
+	$rid=$dataArray['id'][$i];
+	$x=split('-',$dataArray['code'][$i]);
+	$y=str_split($x[0]);
+	
+	$pGroup=$y[0];
+	$pType=$y[1];
+	
+	
+	$sql="UPDATE yss_product SET product_group='$pGroup',product_type='$pType' WHERE product_id='$rid'";
 	$rs=mysqli_query($con,$sql);
 }
 

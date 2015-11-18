@@ -31,6 +31,16 @@ echo $_SESSION['sess_lang'];
 
 
 //GET SHOT WORD==========================
+	$txt_select_brand=$myFn->getWord($conn,'select_brand',$lang);
+	$txt_select_model=$myFn->getWord($conn,'select_model',$lang);
+	$txt_cc=$myFn->getWord($conn,'cc',$lang);
+	$txt_category=$myFn->getWord($conn,'category',$lang);
+	$txt_search=$myFn->getWord($conn,'search',$lang);
+	$txt_vehicle_type=$myFn->getWord($conn,'vehicle_type',$lang);
+	$txt_year=$myFn->getWord($conn,'year',$lang);
+	$txt_adjust_search=$myFn->getWord($conn,'adjust_search',$lang);
+	$txt_price_range=$myFn->getWord($conn,'price_range',$lang);
+	
 	$txt_product=$myFn->getWord($conn,'product',$lang);
 	$txt_mostpop=$myFn->getWord($conn,'most_pop_brands',$lang);
 	$txt_viewall=$myFn->getWord($conn,'view_all',$lang);
@@ -110,54 +120,11 @@ echo $_SESSION['sess_lang'];
 	<div class="container clearfix">  
 		<!-- content -->
         <div class="content">
-        	
-            <!-- sorting, pages -->
-	        <div class="list_manage">
-            	<div class="inner clearfix">
-                <form action="#" method="post" class="form_sort">
-                    <span class="manage_title">Sort by:</span>
-                        <select class="select_styled white_select" name="sort_list" id="sort_list">
-                            <option value="1">Latest Added</option>
-                            <!--<option value="2" selected>Price High - Low</option>
-                            <option value="3">Price Low - Hight</option>-->
-                            <option value="4">Names A-Z</option>
-                            <option value="5">Names Z-A</option>
-                        </select>
-                </form>    
-                
-                <div class="pages_jump">
-                    <span class="manage_title">Jump to page:</span>
-                    <form action="#" method="post">
-                        <input type="text" name="jumptopage" value="15" class="inputSmall"><input type="submit" class="btn-arrow" value="Go">
-                    </form>
-                </div>
-                
-                <div class="pages">
-                    <span class="manage_title">Page: &nbsp;<strong>1 of 25</strong></span> <a href="#" class="link_prev">Previous</a><a href="#" class="link_next">Next</a>
-                </div>
-                 
-                </div>
-	        </div>
-          	<!--/ sorting, pages -->
-            
             <!-- Product list -->
             <div id="productList-cn">
 				<?php include("inc/inc_product_list2.php") ?>
             </div>
             <!--/ Product list -->
-            
-            <!-- pagination -->
-            <div class="tf_pagination">
-	            <div class="inner">
-	            	<a class="page_prev" href="#"><span></span>PREV</a> 
-                	<a class="page_next" href="#"><span></span>NEXT</a>
-                
-                	<span class="page-numbers page_current">1</span> <a href="#" class="page-numbers">2</a>  <a href="#" class="page-numbers">3</a> <a href="#" class="page-numbers">4</a> <a href="#" class="page-numbers">5</a> <a href="#" class="page-numbers">6</a> <a href="#" class="page-numbers">7</a> &hellip;  <a href="#" class="page-numbers">18</a>     
-                      
-	            </div>
-            </div>
-            <!--/ pagination -->
-            
         </div>
         <!--/ content -->
         

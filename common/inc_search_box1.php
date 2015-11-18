@@ -115,15 +115,17 @@
 					</div>
 					
 					<div class="row field_select">
-						<label class="label_title">Country / State:</label>
+						<label class="label_title">Product Range:</label>
 						<select class="select_styled" name="car_location">
                         	<option value="">All</option>
-							<option value="1">New York</option>
-							<option value="2">San Diego</option>
-							<option value="3">Chicago</option>
-							<option value="4">San Francisco</option>
-							<option value="5">Los Angeles</option>
-							<option value="6">Boston</option>
+							<option value="1">Racing Line</option>
+                            <option value="2">Top Line</option>
+							<option value="3">Eco Line</option>
+							<option value="4">Gas DTG</option>
+							<option value="5">Hydraulic Shock Absorber</option>
+                            <option value="6">Front Fork</option>
+                            <option value="7">Steering Damper</option>
+                            <option value="8">Accessories</option>
 						</select>
 					</div>
                 </div>

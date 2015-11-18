@@ -1,12 +1,12 @@
 <h1 class="yssfont01 head-style-01">
 	<span style="float:left;"><img src="images/box-header-01.png"/></span>
-	<div class="middle">New Products</div>
+	<div class="middle"><?php echo $txt_newProduct ?></div>
 	<span><img src="images/box-header-02.png"/></span>
 </h1>
 
 <?php
 //GET NEW PRODUCT============================
-	$sql="SELECT * FROM yss_product WHERE new='Y' AND enable='Y' LIMIT 4";
+	$sql="SELECT * FROM yss_product WHERE new='Y' AND enable='Y' LIMIT 6";
 	$rs=mysqli_query($conn,$sql);
 	$n=mysqli_num_rows($rs);
 	//echo "Total: $n";
@@ -25,7 +25,8 @@
 	//CHECK PIC AVARIABLE=============
 		$chkPic='images/products/large/'.$p_image;
 		if(!file_exists($chkPic)){
-			$p_image='no-photo.jpg';
+			//$p_image='no-photo.jpg';
+			$p_image='t_detail_180px.jpg';
 		}
 ?>
     <div class="col col_1_4 alpha" style="width:190px;">

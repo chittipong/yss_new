@@ -24,10 +24,20 @@
 	$menu_joinus=$myMenu->getMenu('joinus');
 	$menu_video=$myMenu->getMenu('video');
 	$menu_technology=$myMenu->getMenu('technology');
-	
+	$ccArray=$myFn->getCcList($conn);							//Get CC
 //END===============================================================
 ?>
-
+<?php
+	$txt_viewall=$myFn->getWord($conn,'view_all',$lang);
+	$txt_vehicle=$myFn->getWord($conn,'vehicles',$lang);
+	$txt_product_range=$myFn->getWord($conn,'product_range',$lang);
+	
+	$txt_motorcy=$myFn->getWord($conn,'motorcycle',$lang);
+	$txt_scooter=$myFn->getWord($conn,'scooter',$lang);
+	$txt_quad=$myFn->getWord($conn,'quad',$lang);
+	$txt_car=$myFn->getWord($conn,'car',$lang);
+	$txt_special_purpose=$myFn->getWord($conn,'special_purpose',$lang);
+?>
 <?php
 //GET SERVICE WELLCOME TEXT=========================
 $sql="SELECT * FROM yss_content WHERE specific_name='service_wellcome_txt' AND lang='$lang'";
@@ -71,17 +81,17 @@ $sql="SELECT * FROM yss_content WHERE specific_name='service_wellcome_txt' AND l
 	                            </div>
 	                            <!--/ widget text -->
 	                        </li>	                        
-                            <li class="menu-level-1"><a href="#"><span>Vehicles</span></a>
+                            <li class="menu-level-1"><a href="#"><span><?php echo $txt_vehicle ?></span></a>
 	                            <ul class="submenu-2">                                
-	                                <li class="menu-level-2"><a href="product-list.php"><span>Motorbikes</span></a></li>
-	                                <li class="menu-level-2"><a href="product-list.php"><span>Scooter</span></a></li>
-	                                <li class="menu-level-2"><a href="product-list.php"><span>ATV</span></a></li>
-	                                <li class="menu-level-2"><a href="product-list.php"><span>Special Purpose</span></a></li>
-	                                <li class="menu-level-2"><a href="product-list.php"><span>CAR</span></a></li>
-	                                <li class="menu-level-2 more-nav"><a href="product-list.php"><span>view all</span></a></li>
+	                                <li class="menu-level-2"><a href="product-list.php?vehicle_type=1"><span><?php echo $txt_motorcy ?></span></a></li>
+	                                <li class="menu-level-2"><a href="product-list.php?vehicle_type=3"><span><?php echo $txt_scooter ?></span></a></li>
+	                                <li class="menu-level-2"><a href="product-list.php?vehicle_type=2"><span><?php echo $txt_quad ?></span></a></li>
+	                                <li class="menu-level-2"><a href="product-list.php?vehicle_type=5"><span><?php echo $txt_car ?></span></a></li>
+                                    <li class="menu-level-2"><a href="product-list.php?vehicle_type=4"><span><?php echo $txt_special_purpose ?></span></a></li>
+	                                <li class="menu-level-2 more-nav"><a href="product-list.php"><span><?php echo $txt_viewall ?></span></a></li>
 	                            </ul>
 							</li>
-	                        <li class="menu-level-1"><a href="#"><span>Product Range</span></a>
+	                        <li class="menu-level-1"><a href="#"><span><?php echo $txt_product_range ?></span></a>
 	                            <ul class="submenu-2">                                
 	                                <li class="menu-level-2"><a href="product-list.php"><span>Racing Product</span></a></li>
 	                                <li class="menu-level-2"><a href="product-list.php"><span>Top Line Product</span></a></li>
@@ -90,18 +100,18 @@ $sql="SELECT * FROM yss_content WHERE specific_name='service_wellcome_txt' AND l
                                     <li class="menu-level-2"><a href="product-list.php"><span>Hydraulic Shock Absorber</span></a></li>
 	                            </ul>
 							</li>    
-                            <li class="menu-level-1"><a href="#"><span>Product Range</span></a>
+                            <li class="menu-level-1"><a href="#"><span></span></a>
 	                            <ul class="submenu-2">                                
 	                                <li class="menu-level-2"><a href="product-list.php"><span>Front Fork</span></a></li>
 	                                <li class="menu-level-2"><a href="product-list.php"><span>Steering Damper</span></a></li>
 	                                <li class="menu-level-2"><a href="product-list.php"><span>Accessories</span></a></li>
-	                                <li class="menu-level-2 more-nav"><a href="product-list.php"><span>view all</span></a></li>
+	                                <li class="menu-level-2 more-nav"><a href="product-list.php"><span><?php echo $txt_viewall ?></span></a></li>
 	                            </ul>
 							</li>                   	                                                                    
 	                    </ul>
 	                </li>       
                     
-	                <li class="menu-level-0 mega-nav"><a href="services.html"><span><?php echo $menu_service ?></span></a>
+	                <li class="menu-level-0 mega-nav"><a href="#"><span><?php echo $menu_service ?></span></a>
 	                	<ul class="submenu-1">                      	                                                                                                  
 	                        <li class="menu-level-1 mega-nav-widget">                            	
 	                            <!-- widget text -->
@@ -128,7 +138,7 @@ $sql="SELECT * FROM yss_content WHERE specific_name='service_wellcome_txt' AND l
 							</li>                                      
 	                    </ul>
 	                </li>
-                    <li class="menu-level-0"><a href="#"><span>Pages</span></a>
+                    <!--<li class="menu-level-0"><a href="#"><span>Pages</span></a>
 						<ul class="submenu-1">
                         	<li class="menu-level-1"><a href="blog.html"><span>Blog</span></a></li>							
 							<li class="menu-level-1"><a href="page-about.html"><span>About Page</span></a></li>
@@ -153,7 +163,7 @@ $sql="SELECT * FROM yss_content WHERE specific_name='service_wellcome_txt' AND l
 							<li class="menu-level-1"><a href="blog-sidebar-left.html"><span>Sidebar Left</span></a></li>
 							<li class="menu-level-1"><a href="page-404.html"><span>Page 404</span></a></li>
 						</ul>
-					</li> 
+					</li>--> 
                     <li class="menu-level-0"><a href="joinus.php"><span><?php echo $menu_joinus ?></span></a>
 					<li class="menu-level-0"><a href="contactus.php"><span><?php echo $menu_contact ?></span></a></li>                                
 				</ul>   

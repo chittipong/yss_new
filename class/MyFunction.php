@@ -185,7 +185,7 @@ class MyFunction{
 //LIST MODEL=========================================
 	function getModelList($conn){
 		$modelArray=array();
-		$sql="SELECT model_id,model FROM yss_model ORDER BY model ASC";
+		$sql="SELECT model_id,model FROM yss_model GROUP BY model ORDER BY model ASC";
 		$rs=mysqli_query($conn,$sql);
 		
 		while($data=mysqli_fetch_assoc($rs)){
@@ -252,6 +252,13 @@ class MyFunction{
 		return $myArray;
 	}
 	
+	function countByVehicle($conn,$vehicle){
+		$sql="SELECT product_id  FROM yss_product WHERE vehicle_type='$vehicle'";	
+		$rs=mysqli_query($conn,$sql);
+		$totalRows=mysqli_num_rows($rs);
+		return $totalRows;
+	}
+	
 	
 	//Function Get Mac Address-------------------------
 		function getMacAddress(){
@@ -297,13 +304,13 @@ class MyFunction{
 	//Get Preload icon----------------------------------
 		public function getPreloadIcon($preload){
 			if($preload=="P"){
-				$preload_icon='<img src="images/feature/bigicon_P.png" alt="" width="36"/>';
+				$preload_icon='<img src="images/feature/feature_p.png" alt="" width="36"/>';
 			}else if($preload=="T"){
-				$preload_icon='<img src="images/feature/bigicon_t.png" alt="" width="36"/>';
+				$preload_icon='<img src="images/feature/feature_t.png" alt="" width="36"/>';
 			}else if($preload=="H"){
-				$preload_icon='<img src="images/feature/bigicon_H.png" alt="" width="36"/>';
+				$preload_icon='<img src="images/feature/feature_H.png" alt="" width="36"/>';
 			}else if($preload=="H1"){
-				$preload_icon='<img src="images/feature/bigicon_H1.png" alt="" width="36"/>';
+				$preload_icon='<img src="images/feature/feature_H1.png" alt="" width="36"/>';
 			}else{
 				$preload_icon="";
 			}
@@ -314,9 +321,9 @@ class MyFunction{
 	//Get Compression icon----------------------------------
 		public function getCompressionIcon($compress){
 			if($compress=="W"){
-				$compress_icon='<img src="images/feature/largeicon_w.png" alt="" width="36"/>';
+				$compress_icon='<img src="images/feature/feature_w.png" alt="" width="36"/>';
 			}else if($compress=="C"){
-				$compress_icon='<img src="images/feature/largeicon_c.png" alt="" width="36"/>';
+				$compress_icon='<img src="images/feature/feature_c.png" alt="" width="36"/>';
 			}else if($compress=="C(AB)"){
 				$compress_icon='<img src="images/feature/largeicon_cab.png" alt="" width="36"/>';
 			}else{
@@ -329,7 +336,7 @@ class MyFunction{
 	//Get Rebound icon----------------------------------
 		public function getReboundIcon($rebound){
 			if($rebound=="Y"){
-				$rebound_icon='<img src="images/feature/bigicon_r.png" alt="" width="36"/>';
+				$rebound_icon='<img src="images/feature/feature_r.png" alt="" width="36"/>';
 			}else{
 				$rebound_icon="";
 			}	
@@ -340,12 +347,61 @@ class MyFunction{
 	//Get Length Adjustment icon------------------------------
 		public function getLengthAdjustIcon($lengthAdjust){
 			if($lengthAdjust=="Y"){
-				$lengthAdjus_icon='<img src="images/feature/bigicon_l.png" alt="" width="36"/>';
+				$lengthAdjus_icon='<img src="images/feature/feature_l.png" alt="" width="36"/>';
 			}else{
 				$lengthAdjus_icon="";
 			}
 			
 			return $lengthAdjus_icon;
+		}
+		
+	//Get Description-----------------------------------
+		public function getDescription($conn,$productGroup,$lang){
+			$p=$productGroup;
+			$product_range="";
+			
+			//ECO LINE---------------
+				if($p=="E" OR $p=="C" OR $p=="O" OR $p=="K"){
+					$product_range=1; 
+				}
+			//TOP LINE---------------
+				if($p=="Z" OR $p=="G" OR $p=="X" OR $p=="U"){
+					$product_range=2; 
+				}
+				
+			//RACING LINE------------
+				if($p=="R"){
+					$product_range=3; 
+				}
+				
+			//DTG------------
+				if($p=="M"){
+					$product_range=4; 
+				}
+				
+			//HIGHT PERFORMANCE----------
+				if($p=="X"){
+					$product_range=5;
+				}
+				
+			//SET FIELD------------------
+				if($lang=="TH"){
+					$detailLang="detail_th";
+				}
+				
+				if($lang=="EN"){
+					$detailLang="detail_en";
+				}
+				
+				
+			if(!empty($product_range)){
+				$sql="SELECT id,$detailLang FROM product_range WHERE id='$product_range'";
+				$rs=mysqli_query($conn,$sql);
+				$data=mysqli_fetch_assoc($rs);
+				return $data["$detailLang"];
+			}else{
+				return "No detail";
+			}
 		}
 }
 ?>

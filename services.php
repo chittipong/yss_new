@@ -28,6 +28,8 @@ echo $_SESSION['sess_lang'];
 
 //GET SHOT WORD==========================
 	$txt_service=$myFn->getWord($conn,'services',$lang);
+	$txt_ourservice=$myFn->getWord($conn,'our_service',$lang);
+	$txt_ourproduct=$myFn->getWord($conn,'our_product',$lang);
 ?>
 
 <!doctype html>
@@ -82,7 +84,7 @@ echo $_SESSION['sess_lang'];
 		
 <div class="header header_thin" style="background-image:url(images/contents/banner_service02.jpg)">
 	<div class="header_title">
-    	<h1 class="yssfont01"><span><?php echo $txt_service ?></span></h1>
+    	<h1 class="yssfont01"><span><?php echo $txt_ourservice ?></span></h1>
     </div>
 </div>
 
@@ -94,46 +96,10 @@ echo $_SESSION['sess_lang'];
 </div>
 <!--/ breadcrumbs -->
 
-<div class="middle_row row_gray thin_row">
-		<div class="container clearfix">  
-			
-            <div class="car_types_list">
-                <ul>
-	                <li class="type_hover cart_type_2">
-						<a href="#service_1" class="front anchor"><strong>CAR & MOTO SALES</strong> <em>View more</em></a>
-		                <a href="#service_1" class="back anchor"><strong>CAR & MOTO SALES</strong> <em>View more</em></a>
-                    </li>
-                    <li class="type_hover cart_type_7">
-                        <a href="#" class="front"><strong>FINANCING</strong> <em>View more</em></a>
-                        <a href="#" class="back"><strong>FINANCING</strong> <em>View more</em></a>
-                    </li>
-                    <li class="type_hover cart_type_6">
-	                    <a href="#" class="front"><strong>BUY BACK</strong> <em>View more</em></a>
-	                    <a href="#" class="back"><strong>BUY BACK</strong> <em>View more</em></a>
-                    </li>
-                    <li class="type_hover cart_type_5">
-	                    <a href="#" class="front"><strong>ROAD ASSISTANCE</strong> <em>View more</em></a>
-	                    <a href="#" class="back"><strong>ROAD ASSISTANCE</strong> <em>View more</em></a>
-                    </li>
-                    <li class="type_hover cart_type_8">
-	                    <a href="#" class="front"><strong>REPAIR SERVICE</strong> <em>View more</em></a>
-	                    <a href="#" class="back"><strong>REPAIR SERVICE</strong> <em>View more</em></a>
-                    </li>
-                </ul>                
-            </div>
-            <script>	
-			jQuery(document).ready(function($) {		
-				$('.type_hover').hover(function(){
-					$(this).addClass('flip');
-				},function(){
-					$(this).removeClass('flip');
-				});		          
-			});
-			</script> 
-            
-		</div>
-	</div>
-
+<!-- car types -->
+		<?php include("common/inc_cartype.php"); ?>
+ <!--/ car types -->
+    
 
 <!--=========================START GET AND DISPLAY CONTENT=================================-->
 <?php

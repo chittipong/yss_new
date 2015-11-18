@@ -73,7 +73,8 @@
 				//CHECK PIC AVARIABLE=============
 					$chkPic='images/products/large/'.$pic;
 					if(!file_exists($chkPic)){
-						$pic='no-photo.jpg';
+						//$pic='no-photo.jpg';
+						$pic='t_detail_270px.jpg';
 					}
 					
 				//GET BRAND NAME=========================

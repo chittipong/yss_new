@@ -272,7 +272,7 @@ hr { border: solid #d4d4d4; border-width: 1px 0 0; clear: both; margin: 10px 0 2
 
 /* Links 
 ===================================*/
-a, a:visited { color: ##B3B3B3;; text-decoration: none; outline:none; }
+a, a:visited { color: #488E9E;; text-decoration: none; outline:none; }
 a:hover, a:focus { color: #f25821; }
 
 /* Lists
@@ -5255,7 +5255,7 @@ input.btn-submit,
 	
 .offer_details .offer_price strong {
 	font-size:29px;
-	color:#ee2324}
+	color:#5A5A59}
 
 .offer_details .offer_price em {
 	color:#3f4b56;}

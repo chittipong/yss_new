@@ -12,12 +12,12 @@
             
             <!-- filter -->
 	        <div class="widget-container widget_adv_filter">
-				<h3 class="widget-title">ADJUST SEARCH RESULTS</h3>
+				<h3 class="widget-title"><?php echo $txt_adjust_search ?></h3>
 					
                 <form action="product-list.php" method="GET" class="side_form">
                 
                     <div class="row field_select" style="z-index:10">
-                        <label class="label_title">Brand:</label>
+                        <label class="label_title"><?php echo $txt_select_brand ?>:</label>
                         <select class="select_styled white_select" name="brand">
                         	<option value="" class="default">- SELECT -</option>
 							<?php 
@@ -30,7 +30,7 @@
                     </div>
                     
                     <div class="row field_select" style="z-index:9">
-                        <label class="label_title">Model:</label>
+                        <label class="label_title"><?php echo $txt_select_model ?>:</label>
                         <select class="select_styled white_select" name="model">
                         	<option value="" class="default">- SELECT -</option>
 	                         <?php 
@@ -41,9 +41,10 @@
 							<?php } ?>                
 	                    </select>
                     </div>
+
                     
                     <div class="row field_select" style="z-index:8">
-	                    <label class="label_title">Year:</label>
+	                    <label class="label_title"><?php echo $txt_year ?>:</label>
 	                    <select class="select_styled white_select" name="year">
                         	<option value="" class="default">- SELECT -</option>
                         	<option value="2013">2016</option>
@@ -67,8 +68,21 @@
 	                    </select>
                     </div>
                     
-                    <div class="row input_styled checklist">
-                        <label class="label_title2">Vehicle Type:</label><br> 
+                    <div class="row field_select" style="z-index:7">
+                        <label class="label_title"><?php echo $txt_cc ?>:</label>
+                        <select class="select_styled white_select" name="cc">
+                        	<option value="" class="default">- SELECT -</option>
+	                         <?php 
+								$c=count($ccArray['id']);
+								for($i=0;$i<$c;$i++){
+							?>
+							<option value="<?php echo $ccArray['cc'][$i] ?>"><?php echo $ccArray['cc'][$i] ?></option>
+							<?php } ?>                
+	                    </select>
+                    </div>
+                    
+                    <div class="row input_styled checklist" style="z-index:6">
+                        <label class="label_title2"><?php echo $txt_vehicle_type ?>:</label><br> 
                         <?php 
 							$c=count($catArray['id']);
 							for($i=0;$i<$c;$i++){
@@ -80,20 +94,20 @@
                     </div>
                     
                     <div class="row rangeField">
-                        <label class="label_title2">Price Range:</label>
+                        <label class="label_title2"><?php echo $txt_price_range ?>:</label>
                         <div class="range-slider">
                             <input id="price_range" type="text" name="price_range" value="5000;60000">
                         </div>                   
                         <div class="clear"></div>
                     </div>
                     
-                    <div class="row rangeField">
+                    <!--<div class="row rangeField">
                         <label class="label_title2">Kilometers:</label>
                         <div class="range-slider">
                             <input id="miliage" type="text" name="miliage" value="50000;400000">
                         </div>                   
                         <div class="clear"></div>
-                    </div>
+                    </div>-->
                     
                     <!--<div class="row input_styled checklist">
                         <label class="label_title2">Fuel Type:</label><br>                            
@@ -127,7 +141,7 @@
                     </div>-->
                     
                     <div class="row rowSubmit">
-                        <span class="btn btn_search"><input type="submit" value="SEARCH"></span>
+                        <span class="btn btn_search"><input type="submit" value="<?php echo $txt_search ?>"></span>
                     </div>
                     
                 </form>    
