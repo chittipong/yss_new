@@ -25,5 +25,6 @@
     </div>
  <?php } ?>
  
+ <p align="right" style="clear:right; margin:20px 0;"><a href="news.php"><img src="images/viewall_btn.png"/></a></p>
 
  

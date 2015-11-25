@@ -1,7 +1,8 @@
 <?php
 include "dbconfig2.php";
 
-$sql="SELECT * FROM yss_model";
+//$sql="SELECT * FROM yss_model WHERE model_id BETWEEN 17812 AND 18117";
+
 $rs=mysqli_query($con,$sql);
 
 $modelArray=array();

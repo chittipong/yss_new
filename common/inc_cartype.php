@@ -5,6 +5,9 @@
 	$total_car=$myFn->countByVehicle($conn,5);
 	$total_special=$myFn->countByVehicle($conn,4);
 ?>
+<?php
+	$txt_pieces=$myFn->getWord($conn,'pieces',$lang);
+?>
 
 <div class="middle_row row_gray">
 		<div class="container clearfix">  
@@ -13,24 +16,24 @@
             	<h2><?php echo $txt_ourproduct ?></h2>
                 <ul>
 	                <li class="type_hover cart_type_1">
-						<a href="product-list.php?vehicle_type=3" class="front"><strong>SCOOTERS</strong> <em><?php echo $total_scooter ?> OFFERS</em></a>
-		                <a href="product-list.php?vehicle_type=3" class="back"><strong>SCOOTERS</strong> <em>View more</em></a>
+						<a href="product-list.php?vehicle_type=3" class="front"><strong><?php echo $txt_scooter ?></strong> <em><?php echo $total_scooter ?>  <?php echo $txt_pieces ?></em></a>
+		                <a href="product-list.php?vehicle_type=3" class="back"><strong><?php echo $txt_scooter ?></strong> <em><?php echo $txt_viewall ?></em></a>
                     </li>
                     <li class="type_hover cart_type_2">
-                        <a href="product-list.php?vehicle_type=1" class="front"><strong>MOTORCYCLE</strong> <em><?php echo $total_motorcy ?> OFFERS</em></a>
-                        <a href="product-list.php?vehicle_type=1" class="back"><strong>MOTORCYCLE</strong> <em>View more</em></a>
+                        <a href="product-list.php?vehicle_type=1" class="front"><strong><?php echo $txt_motorcy ?></strong> <em><?php echo $total_motorcy ?>  <?php echo $txt_pieces ?></em></a>
+                        <a href="product-list.php?vehicle_type=1" class="back"><strong><?php echo $txt_motorcy ?></strong> <em><?php echo $txt_viewall ?></em></a>
                     </li>
                     <li class="type_hover cart_type_3">
-	                    <a href="product-list.php?vehicle_type=2" class="front"><strong>QUAD</strong> <em><?php echo $total_quad ?> OFFERS</em></a>
-	                    <a href="product-list.php?vehicle_type=2" class="back"><strong>QUAD</strong> <em>View more</em></a>
+	                    <a href="product-list.php?vehicle_type=2" class="front"><strong><?php echo $txt_quad ?></strong> <em><?php echo $total_quad ?>  <?php echo $txt_pieces ?></em></a>
+	                    <a href="product-list.php?vehicle_type=2" class="back"><strong><?php echo $txt_quad ?></strong> <em><?php echo $txt_viewall ?></em></a>
                     </li>
                     <li class="type_hover cart_type_4">
-	                    <a href="product-list.php?vehicle_type=5" class="front"><strong>CAR</strong> <em><?php echo $total_car ?> OFFERS</em></a>
-	                    <a href="product-list.php?vehicle_type=5" class="back"><strong>CAR</strong> <em>View more</em></a>
+	                    <a href="product-list.php?vehicle_type=5" class="front"><strong><?php echo $txt_car ?></strong> <em><?php echo $total_car ?>  <?php echo $txt_pieces ?></em></a>
+	                    <a href="product-list.php?vehicle_type=5" class="back"><strong><?php echo $txt_car ?></strong> <em><?php echo $txt_viewall ?></em></a>
                     </li>
                     <li class="type_hover cart_type_5">
-	                    <a href="product-list.php?vehicle_type=4" class="front"><strong>SPECIAL</strong> <em><?php echo $total_special ?> OFFERS</em></a>
-	                    <a href="product-list.php?vehicle_type=4" class="back"><strong>SPECIAL</strong> <em>View more</em></a>
+	                    <a href="product-list.php?vehicle_type=4" class="front"><strong><?php echo $txt_special_purpose ?></strong> <em><?php echo $total_special ?> <?php echo $txt_pieces ?></em></a>
+	                    <a href="product-list.php?vehicle_type=4" class="back"><strong><?php echo $txt_special_purpose ?></strong> <em><?php echo $txt_viewall ?></em></a>
                     </li>
                 </ul>                
             	<!--<a href="#" class="link_more">SEE ALL OUR OFFERS</a>-->

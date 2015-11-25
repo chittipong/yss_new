@@ -356,11 +356,13 @@ class MyFunction{
 		}
 		
 	//Get Description-----------------------------------
-		public function getDescription($conn,$productGroup,$lang){
-			$p=$productGroup;
+		public function getDescription($conn,$productGroup,$productType,$preload,$rebound,$compress,$lengthAdjust,$lang){
+			$p=$productType;
 			$product_range="";
 			
-			//ECO LINE---------------
+			//echo $productType.",".$compress;
+			
+			//ECO LINE --------------
 				if($p=="E" OR $p=="C" OR $p=="O" OR $p=="K"){
 					$product_range=1; 
 				}
@@ -370,17 +372,17 @@ class MyFunction{
 				}
 				
 			//RACING LINE------------
-				if($p=="R"){
+				if($p=="G" OR $p=="U" OR $p=="X" AND $compress=="W"){   //Or VBSC(V)
 					$product_range=3; 
 				}
 				
 			//DTG------------
-				if($p=="M"){
+				if($p=="B"){
 					$product_range=4; 
 				}
 				
 			//HIGHT PERFORMANCE----------
-				if($p=="X"){
+				if($p=="D"){
 					$product_range=5;
 				}
 				
@@ -400,7 +402,7 @@ class MyFunction{
 				$data=mysqli_fetch_assoc($rs);
 				return $data["$detailLang"];
 			}else{
-				return "No detail";
+				return "...";
 			}
 		}
 }

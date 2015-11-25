@@ -14,7 +14,7 @@
 			<form action="product-list.php" class="search_form advsearch_hide clearfix">
             	<div class="row field_select">
                     <label class="label_title"><?php echo $txt_vehicle_type ?>:</label>
-                    <select class="select_styled" name="vehicle_type">
+                    <select class="select_styled" name="vehicle_type" id="search-vehicle_type">
                     	<option value="">All</option>
                     	<?php 
 							$c=count($catArray['id']);
@@ -27,7 +27,7 @@
                 
             	<div class="row field_select">
                     <label class="label_title"><?php echo $txt_select_brand ?>:</label>
-                    <select class="select_styled" name="brand">
+                    <select class="select_styled" name="brand" id="search-brand">
                     	<option value="">All</option>
                     	<?php 
 							$c=count($brandArray['id']);
@@ -59,7 +59,7 @@
 							$c=count($ccArray['id']);
 							for($i=0;$i<$c;$i++){
 						?>
-                        <option value="<?php echo $ccArray['id'][$i] ?>"><?php echo $ccArray['cc'][$i] ?></option>           
+                        <option value="<?php echo $ccArray['cc'][$i] ?>"><?php echo $ccArray['cc'][$i] ?></option>           
                         <?php } ?>
                     </select>
                 </div>

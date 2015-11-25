@@ -6,7 +6,7 @@
 
 <?php
 //GET NEW PRODUCT============================
-	$sql="SELECT * FROM yss_product WHERE new='Y' AND enable='Y' LIMIT 6";
+	$sql="SELECT * FROM yss_product WHERE new='Y' AND enable='Y' ORDER BY date_create DESC LIMIT 6";
 	$rs=mysqli_query($conn,$sql);
 	$n=mysqli_num_rows($rs);
 	//echo "Total: $n";
@@ -35,8 +35,9 @@
             	<img src="images/products/large/<?php echo $p_image ?>" alt="" class="frame_center">
             	<h4 align="center"><?php echo $p_code ?></h4> 
             </a>
-            <?php echo $p_title ?>
+            <?php //echo $p_title ?>
          </p>
     </div>
 <?php } ?>
+<p align="right" style="clear:right; margin:20px 0;"><a href="news.php"><img src="images/viewall_btn.png"/></a></p>
  

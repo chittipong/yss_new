@@ -12,7 +12,7 @@ if(isset($_SESSION['sess_lang'])==""){
 }
 //GET LANGUAGE==========================
 $lang=$_SESSION['sess_lang'];			
-echo $_SESSION['sess_lang'];
+//echo $_SESSION['sess_lang'];
 
 //CONNECT DATABASE=======================
 	$conn=connectDb();
@@ -45,6 +45,7 @@ echo $_SESSION['sess_lang'];
 			$job_exp=$data['exp'];
 			$job_desc=$data['job_description'];
 			$job_edu=$data['education'];
+			$job_major=$data['major'];
 			$job_salary=$data['salary'];
 			
 			$contact_name=$data['contact_name'];
@@ -210,11 +211,11 @@ echo $_SESSION['sess_lang'];
                             </tr>
                             <tr>
                                 <td width="18%" align="right"><strong><?php echo $txt_age ?></strong></td>
-                                <td width="82%"><?php echo $job_age ?> <?php echo $txt_year ?></td>
+                                <td width="82%"><?php echo $job_age ?></td>
                             </tr>
 							<tr class="odd">
                               <td align="right"><strong><?php echo $txt_edu ?></strong></td>
-                              <td><?php echo $job_edu ?></td>
+                              <td><?php echo $job_edu ?> <?php echo $job_major ?></td>
                             </tr>
                             <tr>
                               <td align="right"><strong><?php echo $txt_exp ?></strong></td>
@@ -239,12 +240,10 @@ echo $_SESSION['sess_lang'];
           
           <div class="styled_table table_red">
               <div class="tabs_framed small_tabs">
-                        <ul class="tabs">
-                            <li class="current"><a href="#tabs_2_2" hidefocus="true" style="outline: none;">สนใจติดต่อ<?php //echo $job_position ?></a></li>
-                        </ul>
                         <div id="tabs_2_1" class="tabcontent" style="display: block;">
                           <div class="inner">
-                          <h4>คุณ <?php echo $contact_name ?> Tel: <?php echo $contact_tel ?> Email: <?php echo $contact_mail ?></h4>
+                          <h3>Contact Info</h3>
+                          <h4>Name: <?php echo $contact_name ?> Tel: <?php echo $contact_tel ?> Email: <?php echo $contact_mail ?></h4>
                             
                             </div>
                         </div>

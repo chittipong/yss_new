@@ -32,10 +32,10 @@
 					$searchArray[]="m.model_id='$search_model'";
 				}
 				if(!empty($search_year)){
-					$searchArray[]="m.year='$search_year'";
+					$searchArray[]="d.year='$search_year'";
 				}
 				if(!empty($search_cc)){
-					$searchArray[]="m.cc='$search_cc'";
+					$searchArray[]="d.cc='$search_cc'";
 				}
 				if(!empty($search_pGroup)){
 					$searchArray[]="p.product_group='$search_pGroup'";
@@ -69,7 +69,7 @@
 			//SET STRING CONDITION--------------------
 				$c=count($searchArray);
 				if($c>0){
-					$condition=" AND ";	
+					$condition="";	
 					for($i=0;$i<$c;$i++){
 						if($i<($c-1)){
 							$condition.=$searchArray[$i]." AND ";
@@ -85,59 +85,77 @@
 ?>
 
 <?php	
-		$sql='SELECT p.product_id,p.brand_id,p.model_id,p.vehicle_type,
-				m.model,m.year,m.`start`,m.`end`,m.cc,p.product_group,
-				p.product_type,p.code,p.`type`,p.image,p.length,p.spring,p.piston,
-				p.shaft,p.date_create,p.rebound,p.compression,p.length_adjuster,p.preload,
-				p.new,p.hot
-		FROM yss_product p,yss_model m WHERE p.model_id=m.model_id';
-						
-					$command=$sql.$condition;							//include condition***
+//Check for Perfermance search=========================================
+	if(!empty($condition)){ //WHEN THERE IS CONDITION***
+			if($search_year!="" || $search_cc!=""){
+			  	//echo "============= Way 1 ================ <br/>";
+				  $sql='SELECT p.product_id,p.brand_id,p.model_id,p.vehicle_type,m.model,d.`year`,d.cc,
+				  p.product_group,p.product_type,p.code,p.`type`,p.image,p.`length`,p.spring,p.piston, 
+				  p.shaft,p.date_create,p.rebound,p.compression,p.length_adjuster,p.preload,p.new,p.hot 
+				  FROM yss_product p LEFT JOIN yss_model m ON p.model_id=m.model_id 
+				  LEFT JOIN yss_model_detail d ON m.model_id=d.model_id
+				  WHERE ';
+			  }else{
+				  //echo "============= Way 2 ================ <br/>";
+				  $sql='SELECT p.product_id,p.brand_id,p.model_id,m.model,p.code,p.`type`,
+				  p.image,p.length,p.piston,p.shaft,p.rebound,p.compression,p.length_adjuster,
+				  p.preload,p.new,p.hot FROM yss_product p LEFT JOIN yss_model m ON p.model_id=m.model_id WHERE ';
+			  }
+	}else{//WHEN THERE IS NO CONDITION***
+		  //echo "============= Way 3 ================ <br/>";
+		  $sql='SELECT p.product_id,p.brand_id,p.model_id,p.vehicle_type,m.model,
+		  p.product_group,p.product_type,p.code,p.`type`,p.image,p.length,p.spring,p.piston,
+		  p.shaft,p.rebound,p.compression,p.length_adjuster,p.preload,p.new,p.hot
+		  FROM yss_product p,yss_model m WHERE p.model_id=m.model_id';
+	}
+//Check for Perfermance search=========================================			  
+			  
+			  $command=$sql.$condition;										//include condition***
+			  
+			  //echo $command; //exit(); 											//Display sql string***
+			  
+			  //get object result from database
+			  $result  = mysqli_query($conn,$command);
+			  $num=mysqli_num_rows($result);
+			  
+			  $queryString = $_SERVER['QUERY_STRING'];						//Get Query string
+			  //echo $queryString;
+			  
+			  $p=isset($_GET['page']) ? $_GET['page']:null;					//Get page number
+			  
+			  //Replace current page-------------
+			  if(!empty($p)){
+				  $queryString = str_ireplace("&page=$p", "", $queryString);
+			  }
+			  
+			  //echo $queryString;											//Show Query String after replace***
+			  
+			  //Configuration pager
+			  $config['url_page'] = "product-list.php?$queryString&page=";
+			  
+			  $config['all_recs'] = mysqli_num_rows($result);				// จำนวนแถวทั้งหมดของข้อมูล
+			  $config['scr_page'] = 7;									// จำนวนเลขหน้าที่แสดงในหน้านั้น
+			  $config['per_page'] = 10;									// จำนวนแถวต่อหน้า
+			  $config['cur_page'] = isset($_GET['page']) ? $_GET['page'] : 1;	// หน้าปัจจุบัน
+			  $config['act_page'] = 'class="current_page"';				// ใส่ class css ให้หน้าปัจจุบัน
+			  $config['css_page'] = 'class="css-pager"';					// ใส่ clss css ให้กับส่วนการแบ่งหน้า
+			  $config['first'] = '&laquo; First';								// ข้อความปุมหน้าแรก
+			  $config['previous'] = '&lsaquo; Prev';						// ข้อความปุมหน้าก่อนหน้า
+			  $config['next']  = 'Next &rsaquo;';							// ข้อความปุมหน้าถัดไป
+			  $config['last']  = 'Last &raquo;';							// ข้อความปุมหน้าสุดท้าย
+		  
+			  //create pager instance
+			  $pager = new Pager($config);
+			  
+			  echo "<p>";
+				  try {
+					  $pager->createPager();
+				  } 
+				  catch(Exception $e) { echo $e->getMessage(); } 
+			  echo "</p>";
 					
-					//echo $command; exit(); 										//Display sql string***
-					
-					//get object result from database
-					$result  = mysqli_query($conn,$command);
-					$num=mysqli_num_rows($result);
-					
-					$queryString = $_SERVER['QUERY_STRING'];						//Get Query string
-					//echo $queryString;
-					
-					$p=isset($_GET['page']) ? $_GET['page']:null;					//Get page number
-					
-					//Replace current page-------------
-					if(!empty($p)){
-						$queryString = str_ireplace("&page=$p", "", $queryString);
-					}
-					
-					//echo $queryString;											//Show Query String after replace***
-					
-					//Configuration pager
-					$config['url_page'] = "product-list.php?$queryString&page=";
-					
-					$config['all_recs'] = mysqli_num_rows($result);				// จำนวนแถวทั้งหมดของข้อมูล
-					$config['scr_page'] = 7;									// จำนวนเลขหน้าที่แสดงในหน้านั้น
-					$config['per_page'] = 10;									// จำนวนแถวต่อหน้า
-					$config['cur_page'] = isset($_GET['page']) ? $_GET['page'] : 1;	// หน้าปัจจุบัน
-					$config['act_page'] = 'class="current_page"';				// ใส่ class css ให้หน้าปัจจุบัน
-					$config['css_page'] = 'class="css-pager"';					// ใส่ clss css ให้กับส่วนการแบ่งหน้า
-					$config['first'] = '&laquo; First';								// ข้อความปุมหน้าแรก
-					$config['previous'] = '&lsaquo; Prev';						// ข้อความปุมหน้าก่อนหน้า
-					$config['next']  = 'Next &rsaquo;';							// ข้อความปุมหน้าถัดไป
-					$config['last']  = 'Last &raquo;';							// ข้อความปุมหน้าสุดท้าย
-				
-					//create pager instance
-					$pager = new Pager($config);
-					
-					echo "<p>";
-						try {
-							$pager->createPager();
-						} 
-						catch(Exception $e) { echo $e->getMessage(); } 
-					echo "</p>";
-					
-					//display data
-					 $result = mysqli_query($conn,$command." ORDER BY product_id ASC LIMIT ".$pager->limitStart().", ".$config['per_page']) or die (mysql_error());
+		//display data
+		$result = mysqli_query($conn,$command." ORDER BY product_id ASC LIMIT ".$pager->limitStart().", ".$config['per_page']) or die (mysql_error());
         ?>      
         
 <?php 
@@ -157,13 +175,13 @@
             while($data=mysqli_fetch_assoc($result)){
                 $product_id=$data['product_id'];
                 $product_code=$data['code'];
-                $productGroup=$data['product_group'];
-                $productType=$data['product_type'];
+               // $productGroup=$data['product_group'];
+                //$productType=$data['product_type'];
                 $type=$data['type'];
                 $brandId=$data['brand_id'];
 				$piston=$data['piston'];
 				$shaft=$data['shaft'];
-				$spring=$data['spring'];
+				//$spring=$data['spring'];
 				$length=$data['length'];
 				$pic=$data['image'];
                 $modelId=$data['model_id'];
@@ -188,7 +206,7 @@
 				  
 				//CHECK PIC AVARIABLE=============
 					$chkPic='images/products/large/'.$pic;
-					if(!file_exists($chkPic)){
+					if(!file_exists($chkPic) OR $pic==""){
 						//$pic='no-photo.jpg';
 						$pic='t_detail_270px.jpg';
 					}

@@ -12,7 +12,7 @@
     <div class="widget_popular_posts">
       <ul>
         <li>
-          <div class="extras"> <a href="blog-details.html" hidefocus="true" style="outline: none;"> 
+          <div class="extras"> <a href="#" hidefocus="true" style="outline: none;"> 
           <img src="images/distributor/<?php echo $dist_pic ?>" alt="" width="388" height="260" class="thumbnail"></a>
             <h5><strong><em><?php echo $dist_title ?></em></strong></h5>
             <div >

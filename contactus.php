@@ -12,7 +12,7 @@ if(isset($_SESSION['sess_lang'])==""){
 }
 //GET LANGUAGE==========================
 $lang=$_SESSION['sess_lang'];			
-echo $_SESSION['sess_lang'];
+//echo $_SESSION['sess_lang'];
 
 //CONNECT DATABASE=======================
 	$conn=connectDb();
@@ -139,6 +139,7 @@ echo $_SESSION['sess_lang'];
                             <option value="Just saying Hi">Just saying Hi</option>
                             <option value="Feedback">Feedback</option>
                             <option value="Question">Question</option>
+                            <option value="Problem">Problem Report</option>
                         </select>
                     </div>
                     
@@ -221,6 +222,7 @@ echo $_SESSION['sess_lang'];
                      
             <?php 
 				//GET IMPORTERS CATEGORY==============================
+					//$sql="SELECT * FROM importers_category WHERE lang='$lang' AND status='enable'";
 					$sql="SELECT * FROM importers_category WHERE lang='$lang' AND status='enable'";
 					$rs=mysqli_query($conn,$sql);
 					

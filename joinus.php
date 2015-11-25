@@ -12,7 +12,7 @@ if(isset($_SESSION['sess_lang'])==""){
 }
 //GET LANGUAGE==========================
 $lang=$_SESSION['sess_lang'];			
-echo $_SESSION['sess_lang'];
+//echo $_SESSION['sess_lang'];
 
 //CONNECT DATABASE=======================
 	$conn=connectDb();
@@ -196,13 +196,15 @@ echo $_SESSION['sess_lang'];
                         </thead>
                         <tbody>
                         <?php 
-							$sql="SELECT * FROM yss_jobs WHERE enable='Y' ORDER BY sort_order";
+							$sql="SELECT * FROM yss_jobs WHERE enable='Y' AND lang='$lang' ORDER BY sort_order";
 							
 							//$sql2="SELECT * FROM jobs";
 							$rs2=mysqli_query($conn,$sql)or die(mysqli_error());
 							
 							$n=mysqli_num_rows($rs2);
 							//echo $n;
+							
+							if($n>0){
 							$no=1;
 								while($data2=mysqli_fetch_assoc($rs2)){
 									$job_id=$data2['id'];
@@ -220,6 +222,7 @@ echo $_SESSION['sess_lang'];
 									if($job_sex=='both' && $lang=="EN"){
 										$job_sex="Both";
 									}
+									
 						?>
                             <tr>
                             	<td><?php echo $no ?></td>
@@ -230,7 +233,7 @@ echo $_SESSION['sess_lang'];
                                 <td><?php echo $job_edu ?></td>
                                 <td><?php echo $job_salary ?></td>
                             </tr>
-                        <?php $no++; } ?> 
+                        <?php $no++; } }//end if***?> 
                         </tbody>
                     </table>
                     </div>

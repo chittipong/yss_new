@@ -1,7 +1,7 @@
 <?php
 include "dbconfig2.php";
 
-$sql="SELECT * FROM application_list";
+//$sql="SELECT * FROM application_list";
 $rs=mysqli_query($con,$sql);
 
 $sqlArray=array();

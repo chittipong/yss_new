@@ -11,7 +11,7 @@ isset($_SESSION['sess_lang']) ?$_SESSION['sess_lang']:'TH';
 
 //GET LANGUAGE==========================
 $lang=$_SESSION['sess_lang'];			
-echo $_SESSION['sess_lang'];
+//echo $_SESSION['sess_lang'];
 
 //CONNECT DATABASE=======================
 	$conn=connectDb();

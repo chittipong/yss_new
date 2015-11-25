@@ -328,3 +328,9 @@ ul#sidebar-banner li{
 	height:160px !important;
 	width:100%;
 }
+#yssBG-Video{
+    height: 328px;
+    width: 1423px;
+    z-index: 1;
+	background:none;
+}

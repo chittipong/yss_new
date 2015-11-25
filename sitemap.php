@@ -12,7 +12,7 @@ if(isset($_SESSION['sess_lang'])==""){
 }
 //GET LANGUAGE==========================
 $lang=$_SESSION['sess_lang'];			
-echo $_SESSION['sess_lang'];
+//echo $_SESSION['sess_lang'];
 
 //CONNECT DATABASE=======================
 	$conn=connectDb();
@@ -111,21 +111,13 @@ echo $_SESSION['sess_lang'];
                       <td><h2 class="sitemap-header">About Us</h2></td>
                     </tr>
                     <tr>
-                      <td align="left"><a href="introduct.php"> <img src="images/sitemap_icon.png" border="0" align="absmiddle"> <font color="#000000" class="style13"> Success / Introduction </font> </a></td>
+                      <td align="left"><a href="introduction.php"> <img src="images/sitemap_icon.png" border="0" align="absmiddle"> <font color="#000000" class="style13"> Success / Introduction </font> </a></td>
                     </tr>
                     <tr>
                       <td background="images/sitemap_line.png" height="2"></td>
                     </tr>
                     <tr>
-                      <td align="left"><!-- <a href="index.php?lang=EN&menu=corporate-symbols"> -->
-                        <img src="images/sitemap_icon.png" border="0" align="absmiddle"> <font color="#000000" class="style13"> NPD </font>
-                        <!-- </a> --></td>
-                    </tr>
-                    <tr>
                       <td background="images/sitemap_line.png" height="2"></td>
-                    </tr>
-                    <tr>
-                      <td align="left"><a href="#"> <img src="images/sitemap_icon.png" border="0" align="absmiddle"> <font color="#000000" class="style13"> Product + QA Technology </font> </a></td>
                     </tr>
                     <tr>
                       <td background="images/sitemap_line.png" height="2"></td>
@@ -148,9 +140,6 @@ echo $_SESSION['sess_lang'];
                   <tbody>
                     <tr>
                       <td><h2 class="sitemap-header">Product</h2></td>
-                    </tr>
-                    <tr>
-                      <td align="left" height="30"> <font color="#000000" class="style13B"> By Product </font></td>
                     </tr>
                     <tr>
                       <td align="left"><a href="product.php?range=racing"> <img src="images/sitemap_icon.png" border="0" align="absmiddle"> <font color="#000000" class="style13"> Racing </font> </a></td>
@@ -184,21 +173,6 @@ echo $_SESSION['sess_lang'];
                     </tr>
                     <tr>
                       <td align="left"><a href="product.php?range=steering"> <img src="images/sitemap_icon.png" border="0" align="absmiddle"> <font color="#000000" class="style13"> Steering Damper </font> </a></td>
-                    </tr>
-                    <tr>
-                      <td background="images/sitemap_line.png" height="2"></td>
-                    </tr>
-                    <tr>
-                      <td align="left" height="30"> <font color="#000000" class="style13B"> By Catagory </font></td>
-                    </tr>
-                    <tr>
-                      <td background="images/sitemap_line.png" height="2"></td>
-                    </tr>
-                    <tr>
-                      <td align="left"><a href="product.php?range=steering"> <img src="images/sitemap_icon.png" border="0" align="absmiddle"> <font color="#000000" class="style13"> Application List Search </font> </a></td>
-                    </tr>
-                    <tr>
-                      <td background="images/sitemap_line.png" height="2"></td>
                     </tr>
                   </tbody>
                 </table></td>
@@ -235,19 +209,13 @@ echo $_SESSION['sess_lang'];
                       <td align="left"><a href="download.php"> <img src="images/sitemap_icon.png" border="0" align="absmiddle"> <font color="#000000" class="style13"> Download </font> </a></td>
                     </tr>
                     <tr>
-                      <td align="left" height="30">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#"> <img src="images/sitemap_icon.png" border="0" align="absmiddle"> <font color="#000000" class="style13"> Register </font> </a></td>
-                    </tr>
-                    <tr>
                       <td background="images/sitemap_line.png" height="2"></td>
                     </tr>
                     <tr>
-                      <td align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="download.php?r=abemanual"> <img src="images/sitemap_icon.png" border="0" align="absmiddle"> <font color="#000000" class="style13"> ABE Manual </font> </a></td>
+                      <td align="left"><a href="download.php?r=abemanual"> <img src="images/sitemap_icon.png" border="0" align="absmiddle"> <font color="#000000" class="style13"> ABE Manual </font> </a></td>
                     </tr>
                     <tr>
                       <td background="images/sitemap_line.png" height="2"></td>
-                    </tr>
-                    <tr>
-                      <td align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="setup-install.php"> <img src="images/sitemap_icon.png" border="0" align="absmiddle"> <font color="#000000" class="style13"> Setup / Install </font> </a></td>
                     </tr>
                   </tbody>
                 </table></td>
@@ -350,8 +318,11 @@ echo $_SESSION['sess_lang'];
                       <td><h2 class="sitemap-header">Our Product</h2>                        <!-- </a> --></td>
                     </tr>
                     <tr>
+                      <td background="images/sitemap_line.png" height="2"></td>
+                    </tr>
+                    <tr>
                       <td align="left"><!-- <a href="index.php?lang=EN&menu="> -->
-                        <img src="images/sitemap_icon.png" border="0" align="absmiddle"> <font color="#000000" class="style13"> <a href="product.php?cat=car">CAR</a></font>
+                        <img src="images/sitemap_icon.png" border="0" align="absmiddle"> <font color="#000000" class="style13"> <a href="product.php?vehicle_type=1">Motorcycle</a></font>
                         <!-- </a> --></td>
                     </tr>
                     <tr>
@@ -359,7 +330,7 @@ echo $_SESSION['sess_lang'];
                     </tr>
                     <tr>
                       <td align="left"><!-- <a href="index.php?lang=EN&menu="> -->
-                        <img src="images/sitemap_icon.png" border="0" align="absmiddle"> <font color="#000000" class="style13"> <a href="product.php?cat=motorcycle">Motorcycle</a></font>
+                        <img src="images/sitemap_icon.png" border="0" align="absmiddle"> <font color="#000000" class="style13"> <a href="product.php?vehicle_type=3">Scooter</a></font>
                         <!-- </a> --></td>
                     </tr>
                     <tr>
@@ -367,23 +338,22 @@ echo $_SESSION['sess_lang'];
                     </tr>
                     <tr>
                       <td align="left"><!-- <a href="index.php?lang=EN&menu="> -->
-                        <img src="images/sitemap_icon.png" border="0" align="absmiddle"> <font color="#000000" class="style13"> <a href="product.php?cat=scooter">Scooter</a></font>
+                        <img src="images/sitemap_icon.png" border="0" align="absmiddle"> <font color="#000000" class="style13"> <a href="product-list.php?vehicle_type=2">Quad</a></font>
                         <!-- </a> --></td>
                     </tr>
+                    
+                    <tr>
+                      <td align="left"><!-- <a href="index.php?lang=EN&menu="> -->
+                        <img src="images/sitemap_icon.png" border="0" align="absmiddle"> <font color="#000000" class="style13"> <a href="product.php?vehicle_type=5">CAR</a></font>
+                        <!-- </a> --></td>
+                    </tr>
+                    
                     <tr>
                       <td background="images/sitemap_line.png" height="2"></td>
                     </tr>
                     <tr>
                       <td align="left"><!-- <a href="index.php?lang=EN&menu="> -->
-                        <img src="images/sitemap_icon.png" border="0" align="absmiddle"> <font color="#000000" class="style13"> <a href="product.php?cat=atv">ATV / UTV </a></font>
-                        <!-- </a> --></td>
-                    </tr>
-                    <tr>
-                      <td background="images/sitemap_line.png" height="2"></td>
-                    </tr>
-                    <tr>
-                      <td align="left"><!-- <a href="index.php?lang=EN&menu="> -->
-                        <img src="images/sitemap_icon.png" border="0" align="absmiddle"> <font color="#000000" class="style13"> <a href="product.php?cat=special-purpose">Special Purpose </a></font>
+                        <img src="images/sitemap_icon.png" border="0" align="absmiddle"> <font color="#000000" class="style13"> <a href="product.php?vehicle_type=4">Special Purpose </a></font>
                         <!-- </a> --></td>
                     </tr>
                     <tr>

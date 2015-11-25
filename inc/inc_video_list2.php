@@ -33,5 +33,7 @@
         </div>
  <?php } ?>
  
+ <p align="right" style="clear:right; margin:20px 0;"><a href="video.php"><img src="images/viewall_btn.png"/></a></p>
+ 
 
  

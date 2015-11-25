@@ -12,7 +12,7 @@ if(isset($_SESSION['sess_lang'])==""){
 }
 //GET LANGUAGE==========================
 $lang=$_SESSION['sess_lang'];			
-echo $_SESSION['sess_lang'];
+//echo $_SESSION['sess_lang'];
 
 //CONNECT DATABASE=======================
 	$conn=connectDb();
@@ -47,6 +47,7 @@ echo $_SESSION['sess_lang'];
 	$txt_news=$myFn->getWord($conn,'news',$lang);
 	$txt_video=$myFn->getWord($conn,'video',$lang);
 	$txt_ourproduct=$myFn->getWord($conn,'our_product',$lang);
+	
 ?>
 
 
@@ -94,6 +95,11 @@ echo $_SESSION['sess_lang'];
 <script src="rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
 <script src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 
+<!-- BG Video -->
+<!--<script type="text/javascript" src="jqueryvideoBG/assets/jquery-1.5.1.js"></script>
+<script type="text/javascript" src="jqueryvideoBG/jquery.videoBG.js"></script>
+<script type="text/javascript" src="jqueryvideoBG/assets/script.js"></script>-->
+    
 </head>
 
 <body>
@@ -109,6 +115,8 @@ echo $_SESSION['sess_lang'];
 
 <!-- middle -->
     <?php include ("common/inc_search_box1.php");?>
+    
+    
 	<div align="center" style="background:#F5F5F5;"><img src="images/page-break.png" alt=""/></div>
     
 	<div class="middle_row row_light_gray">
@@ -166,6 +174,7 @@ echo $_SESSION['sess_lang'];
       </div>
       
       <div class="middle_row latest_offers" style="background:url(images/bg/bg_001.jpg)">
+      <!--<div class="middle_row latest_offers" id="yssBG-Video">-->
 		<div class="container clearfix"> 
           <?php include("inc/inc_video_list2.php") ?>
        	  <?php //include("inc/inc_news_event_list1.php") ?>
@@ -205,6 +214,38 @@ echo $_SESSION['sess_lang'];
 </div>
 </body>
 </html>
+<script>
+$(function(){
+	$("#search-vehicle_type").change(function(){
+		$("#cusel-scroll-search-brand").empty();
+		var vehicle=$("#search-vehicle_type").val();
+		
+		$.post("ajax/ajax_get_brand.php",{v: vehicle},function(data, status){
+			//alert("Data: " + data + "\nStatus: " + status);
+			console.log(data);
+			
+			var brandArr=JSON.parse(data);
+			
+			//alert(brandArr.brandId[0]);
+			//alert(brandArr.brandId.length);
+			
+			var brandIdArr=brandArr.brandId;
+			var brandNameArr=brandArr.brandName;
+			
+			//alert(brandNameArr);
+			
+			$(brandIdArr).each(function(i){
+				$("#cusel-scroll-search-brand").append("<span value='"+brandIdArr[i]+"'>"+brandNameArr[i]+"</span>");
+			});  
+			
+		});
+	});
+});
+
+
+</script>
+
+
 
 
 <!--FACEBOOK-->

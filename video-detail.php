@@ -12,7 +12,7 @@ if(isset($_SESSION['sess_lang'])==""){
 }
 //GET LANGUAGE==========================
 $lang=$_SESSION['sess_lang'];			
-echo $_SESSION['sess_lang'];
+//echo $_SESSION['sess_lang'];
 
 //CONNECT DATABASE=======================
 	$conn=connectDb();
@@ -130,17 +130,19 @@ echo $_SESSION['sess_lang'];
             <!-- post details -->
             <article class="post-item post-detail">
                 <div class="post-aside clearfix" style="padding:20px 0 0 0">
-                	<h1 style="margin:0 20px;"><?php echo $title ?></h1>	
                     <?php 
 						//Display Video--------------
 						if(!empty($video)){ 
 							echo '<div class="video" align="center">'.$video.'</div>';        
                      	} 
 						
+						echo "<h1 style='margin:20px;' align='center'>$title</h1>";
+						
 						if(!empty($detail)){
-							echo '<p>$detail</p>';	
+							echo "<p style='margin:20px'>$detail</p>";	
 						}
-                    ?>                    
+                    ?>       
+                    	             
                     
                     <div class="post-meta">
                     	<div class="post-share"><span>Share:</span> <a href="#" class="share_google" hidefocus="true" style="outline: none; opacity: 1;">Google +1</a> <a href="#" class="share_facebook" hidefocus="true" style="outline: none; opacity: 1;">Facebook</a> <a href="#" class="share_twitter" hidefocus="true" style="outline: none; opacity: 1;">Twitter</a></div>

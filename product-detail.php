@@ -14,7 +14,7 @@ if(isset($_SESSION['sess_lang'])==""){
 }
 //GET LANGUAGE==========================
 $lang=$_SESSION['sess_lang'];			
-echo $_SESSION['sess_lang'];
+//echo $_SESSION['sess_lang'];
 
 //CONNECT DATABASE=======================
 	$conn=connectDb();
@@ -112,7 +112,7 @@ echo $_SESSION['sess_lang'];
 		
 		//CHECK IMAGE AVARIABLE================
 			$chkPic='images/products/large/'.$main_pic;	
-			if(!file_exists($chkPic)){
+			if(!file_exists($chkPic) OR $main_pic==""){
 				//$main_pic='no-photo3.jpg';
 				$main_pic='t_detail_400px.jpg';
 			}	
@@ -123,6 +123,14 @@ echo $_SESSION['sess_lang'];
 		
 		//GET MODEL NAME=========================
 		$modelName=$myFn->getData($conn,'model','yss_model',"WHERE model_id='$model'");
+		
+		//GET YEAR===============================
+		$year=$myFn->getData($conn,'year','yss_model_detail',"WHERE model_id='$model'");
+		
+		//GET CC=================================
+		$cc=$myFn->getData($conn,'cc','yss_model_detail',"WHERE model_id='$model'");
+		
+		//echo "year: $year CC: $cc";
 		
 		
 		//GET FEATURE & OPTION ICON FOR DISPLAY=================
@@ -138,8 +146,8 @@ echo $_SESSION['sess_lang'];
 			$lengthAdjus_icon=$myFn->getLengthAdjustIcon($lengthAdjust);
 			
 		//GET DESCRIPTION=======================
-			$product_description=$myFn->getDescription($conn,$product_group,$lang);
-			
+			$product_description=$myFn->getDescription($conn,$product_group,$product_type,$preload,$rebound,$compress,$lengthAdjust,$lang);
+
 ?>
 
 
@@ -208,7 +216,7 @@ echo $_SESSION['sess_lang'];
 <!-- breadcrumbs -->
 <div class="middle_row row_white breadcrumbs">
     <div class="container">
-        <p><a href="index1.html">Home</a>  <span class="separator">&rsaquo;</span>  <a href="product.php">Product</a><span class="separator">&rsaquo;</span>  <span class="current"><?php echo $product_code ?></span></p>
+        <p><a href="index.php">Home</a>  <span class="separator">&rsaquo;</span>  <a href="product.php">Product</a><span class="separator">&rsaquo;</span>  <span class="current"><?php echo $product_code ?></span></p>
         <a href="product.php" class="link_back">Back to Previous Page</a>
     </div>
 </div>
@@ -266,7 +274,8 @@ echo $_SESSION['sess_lang'];
                     
                     <div class="offer_specification">
                     	<ul>
-                    		<li><span class="spec_name">PRODUCT CODE:</span> <strong class="spec_value"><?php echo $product_code ?></strong></li>
+                    		<!--<li><span class="spec_name">PRODUCT CODE:</span> <strong class="spec_value"><?php echo $product_code ?></strong></li>-->
+                            <li><span class="spec_name">YEAR:</span> <strong class="spec_value"><?php echo $year ?></strong></li>
                             <!--<li><span class="spec_name">BRAND:</span> <strong class="spec_value"><?php echo $brandName ?></strong></li>
                             <li><span class="spec_name">MODEL:</span> <strong class="spec_value"><?php echo $modelName ?></strong></li>-->
                             <li><span class="spec_name">TYPE:</span> <strong class="spec_value"><?php echo $type ?></strong></li>

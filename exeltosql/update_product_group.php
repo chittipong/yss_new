@@ -1,7 +1,8 @@
 <?php
 include "dbconfig2.php";
 
-//$sql="SELECT product_id,code FROM yss_product";
+//$sql="SELECT product_id,code FROM yss_product WHERE product_id BETWEEN 17812 AND 18117";
+
 $rs=mysqli_query($con,$sql);
 
 $dataArray=array();
