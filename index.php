@@ -87,6 +87,7 @@ $lang=$_SESSION['sess_lang'];
 <!-- carousel -->
 <script src="js/jquery.carouFredSel.min.js"></script>
 <script src="js/jquery.touchSwipe.min.js"></script>
+
 <!-- styled select -->
 <link rel="stylesheet" href="css/cusel.css">
 <script src="js/cusel-min.js"></script>
@@ -114,7 +115,10 @@ $lang=$_SESSION['sess_lang'];
 <!--/ header -->
 
 <!-- middle -->
-    <?php include ("common/inc_search_box1.php");?>
+<div id="search-container">
+    <?php include ("common/inc_search_box1.php"); //Original Search Style***  ?>
+    <?php //include ("common/inc_search_box2.php");?>
+</div>
     
     
 	<div align="center" style="background:#F5F5F5;"><img src="images/page-break.png" alt=""/></div>
@@ -125,8 +129,8 @@ $lang=$_SESSION['sess_lang'];
             <div class="row clearfix">
 	                   <div class="col col_2_3  alpha">
 	                    <div class="inner">
-                        	<div class="video_frame" style="margin-bottom:20px;">
-                            	<iframe width="600" height="400" src="https://www.youtube.com/embed/49y-1Rd2CXw" 
+                        	<div class="video_frame" id="video-cn">
+                            	<iframe width="100%" height="100%" src="https://www.youtube.com/embed/49y-1Rd2CXw" 
                                 frameborder="0" allowfullscreen></iframe>
                             </div>
                             
@@ -138,10 +142,10 @@ $lang=$_SESSION['sess_lang'];
 	                </div>
                     
                  <div align="center" style="background:#F5F5F5;"><img src="images/page-break.png" alt=""/></div>
-                    
-      			<?php include("inc/inc_product_new_list1.php") ?>
                 
-                <?php //include("inc/inc_product_hot_list1.php") ?>
+      				<?php include("inc/inc_product_new_list1.php") ?>
+                	<?php //include("inc/inc_product_hot_list1.php") ?>
+
             </div>
             <div class="col col_1_3  alpha">
             	<div style="margin:0 0 20px 0">
@@ -215,7 +219,8 @@ $lang=$_SESSION['sess_lang'];
 </body>
 </html>
 <script>
-$(function(){
+//===================SCRIPT FOR CHANGE DROPDOWN LIST============================
+/*$(function(){
 	$("#search-vehicle_type").change(function(){
 		$("#cusel-scroll-search-brand").empty();
 		var vehicle=$("#search-vehicle_type").val();
@@ -234,6 +239,7 @@ $(function(){
 			
 			//alert(brandNameArr);
 			
+			//Loop and set Dropdown Option------------------
 			$(brandIdArr).each(function(i){
 				$("#cusel-scroll-search-brand").append("<span value='"+brandIdArr[i]+"'>"+brandNameArr[i]+"</span>");
 			});  
@@ -241,11 +247,8 @@ $(function(){
 		});
 	});
 });
-
-
+*/
 </script>
-
-
 
 
 <!--FACEBOOK-->

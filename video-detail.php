@@ -29,7 +29,7 @@ $lang=$_SESSION['sess_lang'];
 //GET QUERY STRING=======================
 	$queryString = $_SERVER['QUERY_STRING'];					//Get Query string
 	
-	echo $queryString;
+	//echo $queryString;
 
 //GET SHOT WORD==========================
 	$txt_qsearch=$myFn->getWord($conn,'quick_search',$lang);
@@ -136,7 +136,7 @@ $lang=$_SESSION['sess_lang'];
 							echo '<div class="video" align="center">'.$video.'</div>';        
                      	} 
 						
-						echo "<h1 style='margin:20px;' align='center'>$title</h1>";
+						echo "<h1 class='yssfont01' style='margin:20px;' align='center'>$title</h1>";
 						
 						if(!empty($detail)){
 							echo "<p style='margin:20px'>$detail</p>";	
@@ -148,7 +148,7 @@ $lang=$_SESSION['sess_lang'];
                     	<div class="post-share"><span>Share:</span> <a href="#" class="share_google" hidefocus="true" style="outline: none; opacity: 1;">Google +1</a> <a href="#" class="share_facebook" hidefocus="true" style="outline: none; opacity: 1;">Facebook</a> <a href="#" class="share_twitter" hidefocus="true" style="outline: none; opacity: 1;">Twitter</a></div>
                         <div class="info_row"><span>Posted On:</span> <?php echo $dateCreate ?></div>
                         <div class="info_row"><span>Written BY:</span> Max Biaggi</div>
-                        <div class="info_row"><span>Comments:</span> <a href="#comments" class="anchor" hidefocus="true" style="outline: none;">3</a></div>
+                        <!--<div class="info_row"><span>Comments:</span> <a href="#comments" class="anchor" hidefocus="true" style="outline: none;">3</a></div>-->
                     </div>         
                 </div>               
             </article>

@@ -164,9 +164,9 @@ $lang=$_SESSION['sess_lang'];
 				<div class="col col_1_2 alpha" style="border-bottom:1px dotted#D0D0D0; margin-bottom:20px; padding: 5px 0;">
                         <p>
                         	<a href="news-detail.php?id=<?php echo $dataArray['id'][$i] ?>" hidefocus="true" style="outline: none;">
-                        		<img src="images/news/<?php echo $dataArray['main_pic'][$i] ?>" alt="" class="frame_left" width="200">
-                        	</a>
+                        		<img src="images/news/<?php echo $dataArray['main_pic'][$i] ?>" alt="" class="frame_left" width="200" style="height:140px !important">
                             <h3><?php echo $dataArray['title'][$i] ?></h3>
+                            </a>
                         	<?php echo $detail ?>
                         </p>
                 </div>

@@ -334,3 +334,10 @@ ul#sidebar-banner li{
     z-index: 1;
 	background:none;
 }
+#video-cn{
+	margin-bottom: 20px;
+	width: 97%;
+	padding: 10px;
+	height: 300px;
+	background: #333;
+}

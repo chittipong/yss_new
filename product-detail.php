@@ -240,7 +240,7 @@ $lang=$_SESSION['sess_lang'];
                 <!-- offer right -->
                 <div class="offer_aside">
                 	<div class="offer_price">
-                    	<strong><?php echo $product_code ?></strong><br>
+                    	<strong class="yssfont01"><?php echo $product_code ?></strong><br>
 						<em><?php //echo $modelName ?></em>
                     </div>
                     
@@ -310,18 +310,21 @@ $lang=$_SESSION['sess_lang'];
 								if($compress=="W"){
 									$compressImg="compress_w.jpg";
 								}
+								if($compress=="7CLICK"){
+									$compressImg="compress_7click.jpg";
+								}
 									
 							if(!empty($compress) && $compress!="-"){
 					?>
                             <div class="col col_1_2  omega">
                                 <div class="inner">
-                                    <h2><?php echo $compress_title ?></h2>
+                                    <h2 class="yssfont01"><?php echo $compress_title ?></h2>
                                        <p>
                                            <img src='images/feature/<?php echo $compressImg ?>'  class='alignleft'/>
                                            <?php echo $compress_detail ?>
                                        </p>
     
-                                         <div class="divider_space_thin"></div>;
+                                         <div class="divider_space_thin"></div>
                                 </div>
                             </div>
                      <?php }//end*** ?>
@@ -345,9 +348,9 @@ $lang=$_SESSION['sess_lang'];
 								
 							if(!empty($preload) && $preload!="-"){
 					?>
-                        <div class="col col_1_2  omega">
+                        <div class="col col_1_2  omega" style="height:350px">
                             <div class="inner">
-                                <h2><?php echo $preload_title ?></h2>
+                                <h2 class="yssfont01"><?php echo $preload_title ?></h2>
                                     <p>
                                         <img src='images/feature/<?php echo $preloadImg ?>'  class='alignleft'/>
                                         <?php echo $preload_detail ?>
@@ -364,7 +367,7 @@ $lang=$_SESSION['sess_lang'];
 					?>
                         <div class="col col_1_2  omega">
                             <div class="inner">
-                                <h2><?php echo $rebound_title ?></h2>
+                                <h2 class="yssfont01"><?php echo $rebound_title ?></h2>
                                     <p>
                                         <img src='images/feature/rebound_adjuster.jpg'  class='alignleft'/>
                                          <?php echo $rebound_detail ?>
@@ -381,7 +384,7 @@ $lang=$_SESSION['sess_lang'];
 					?>
                     <div class="col col_1_2  omega">
 	                    <div class="inner">
-                        	<h2><?php echo $lengthAdjust_title ?></h2>
+                        	<h2 class="yssfont01"><?php echo $lengthAdjust_title ?></h2>
                         	<p>
 								  <img src='images/feature/length_adjuster.jpg'  class='alignleft'/>
 								  <?php echo $lengthAdjust_detail ?>
@@ -468,8 +471,8 @@ $lang=$_SESSION['sess_lang'];
             
             <div class="text_box">
             	<p>
-                <a href="#" class="btn btn_big btn_white"><span>CALL US AT: <strong>1 800 956 756</strong></span></a>
-                <a href="#" class="btn btn_big btn_orange"><span>EMAIL US ABOUT THIS CAR</span></a>
+                <a href="#" class="btn btn_big btn_white"><span>CALL US AT: <strong>+662 706 3700</strong></span></a>
+                <a href="#" class="btn btn_big btn_orange"><span>EMAIL US ABOUT THIS Product</span></a>
                 </p>
             	<p><em>Prices are subject to change. Please see our <a href="#">Privacy Policy</a> for more info</em></p>
             </div>

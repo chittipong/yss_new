@@ -2,9 +2,9 @@
 ob_start();
 session_start();
 
-include("class/connect_db.php");
-include("class/Mymenu.php");
-include("class/MyFunction.php");
+include("../class/connect_db.php");
+include("../class/Mymenu.php");
+include("../class/MyFunction.php");
 	
 //CHECK LANGUAGE=========================
 if(isset($_SESSION['sess_lang'])==""){

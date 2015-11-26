@@ -75,7 +75,7 @@
               </a>
           </p>
           <p><a href="video-detail.php?id=<?php echo $dataArray['id'][$i] ?>" hidefocus="true" style="outline: none;">
-          <h3 style="color:#7B7B7B;"><?php  echo $dataArray['title'][$i] ?></h3></a></p>
+          <h3 class="yssfont01" style="color:#7B7B7B; font-size: 15px;"><?php  echo $dataArray['title'][$i] ?></h3></a></p>
         </div>
 <?php } ?>
 <div class="row clearfix"></div>

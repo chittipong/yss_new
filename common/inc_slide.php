@@ -22,10 +22,10 @@
                     <div class="caption sft text_line" data-x="10" data-y="190" data-speed="900" data-start="800" data-easing="easeOutExpo"></div>
                     <div class="caption sfb text_line" data-x="10" data-y="300" data-speed="900" data-start="800" data-easing="easeOutExpo"></div>
 					<div class="caption sfl white_text big_title" data-x="10" data-y="220" data-speed="900" data-start="500" data-easing="easeOutExpo">
-                         <a href="<?php echo $slide_link ?>"><strong><?php echo $slide_header ?></strong></a>
+                         <a href="<?php echo $slide_link ?>"><strong class="yssfont01"><?php echo $slide_header ?></strong></a>
                     </div>
                     <div class="caption sfr white_text subtitle" data-x="10" data-y="257" data-speed="900" data-start="700" data-easing="easeOutExpo">
-                         <?php echo $slide_title ?>
+                         <span  class="yssfont01"><?php echo $slide_title ?></span>
                     </div>
 				</li>
              <?php } ?>

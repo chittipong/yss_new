@@ -239,8 +239,7 @@
             </div>
             
                     <div class="offer_aside">
-                    	<h2><a href="product-detail.php?id=<?php echo $product_id ?>"><?php echo $product_code ?></a> <?php $brandName ?></h2>
-                        
+                    	<h2 class="yssfont01"><a href="product-detail.php?id=<?php echo $product_id ?>"><?php echo $product_code ?></a> <?php $brandName ?></h2>
                         
                         <div class="special_text" style="width:200px;">
                             <div class="info_row"><span>BRAND:</span> <?php echo $brandName ?></div>
@@ -261,7 +260,7 @@
                         
                       <div class="offer_data">
                        	  <div style="text-align:right">
-                          	<h5>Feature</h5>
+                       	    <h6 class="yssfont01">Feature</h6>
                               <div class="product-feature2">
 								<?php
 									//DISPLAY FEATURE & OPTION ICON ###################

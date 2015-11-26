@@ -216,11 +216,27 @@ $lang=$_SESSION['sess_lang'];
 									$job_salary=$data2['salary'];
 									
 									
-									if($job_sex=='both' && $lang=="TH"){
-										$job_sex="ชาย-หญิง";
+									if($job_sex=='both'){
+										if($lang=="EN"){
+											$job_sex="Both";
+										}else{
+											$job_sex="ชาย-หญิง";
+										}
 									}
-									if($job_sex=='both' && $lang=="EN"){
-										$job_sex="Both";
+									if($job_sex=='male'){
+										if($lang=="EN"){
+											$job_sex="Male";
+										}else{
+											$job_sex="ชาย";
+										}	
+									}
+									
+									if($job_sex=='female'){
+										if($lang=="EN"){
+											$job_sex="Female";
+										}else{
+											$job_sex="หญิง";
+										}
 									}
 									
 						?>

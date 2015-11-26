@@ -54,14 +54,26 @@ $lang=$_SESSION['sess_lang'];
 			$date_create=$data['date_create'];
 			
 			if($job_sex=='both'){
+				if($lang=="EN"){
+					$job_sex="Both";
+				}else{
 					$job_sex="ชาย-หญิง";
+				}
 			}
 			if($job_sex=='male'){
+				if($lang=="EN"){
+					$job_sex="Male";
+				}else{
 					$job_sex="ชาย";
+				}	
 			}
 			
 			if($job_sex=='female'){
-					$job_sex="หญิ";
+				if($lang=="EN"){
+					$job_sex="Female";
+				}else{
+					$job_sex="หญิง";
+				}
 			}
 	}else{
 		echo "Cannot get reference ID.";

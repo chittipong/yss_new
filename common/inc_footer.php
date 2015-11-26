@@ -36,7 +36,7 @@ $sql="SELECT * FROM yss_config WHERE id='1' LIMIT 1";
 	<div class="container clearfix">
     
 		<div class="f_col f_col_1">  
-            <h3><?php echo $txt_aboutus ?>:</h3>
+            <h3 class="yssfont01"><?php echo $txt_aboutus ?>:</h3>
             <ul>
                 <li><a href="introduction.php"><span><?php echo $menu_introduct ?></span></a></li> 
                 <li><a href="rnd.php"><span><?php echo $menu_rnd ?></span></a></li>
@@ -51,7 +51,7 @@ $sql="SELECT * FROM yss_config WHERE id='1' LIMIT 1";
         <!--/ footer col 1 -->
         
         <div class="f_col f_col_2">        	
-			<h3><?php echo $txt_services ?>:</h3>
+			<h3 class="yssfont01"><?php echo $txt_services ?>:</h3>
             <ul>
                 <li><a href="product.php"><span><?php echo $menu_product ?></span></a></li>
                 <li><a href="news.php"><span><?php echo $menu_news ?></span></a></li>
@@ -74,7 +74,7 @@ $sql="SELECT * FROM yss_config WHERE id='1' LIMIT 1";
         <!--/ footer col 3 -->
         
         <div class="f_col f_col_4">   
-           	<h3><?php echo $txt_headoffice ?></h3>
+           	<h3 class="yssfont01"><?php echo $txt_headoffice ?></h3>
             <div class="footer_address">
                 <div class="address">
 	                <?php echo $yss_address ?>

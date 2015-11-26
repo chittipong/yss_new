@@ -29,7 +29,7 @@ $lang=$_SESSION['sess_lang'];
 //GET QUERY STRING=======================
 	$queryString = $_SERVER['QUERY_STRING'];					//Get Query string
 	
-	echo $queryString;
+	//echo $queryString;
 
 //GET SHOT WORD==========================
 	$txt_qsearch=$myFn->getWord($conn,'quick_search',$lang);

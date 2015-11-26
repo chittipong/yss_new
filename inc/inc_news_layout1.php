@@ -1,6 +1,6 @@
 <?php
 $sql="SELECT n.id,n.pic AS main_pic, n.sort_order,n.`type`,n.date_create,d.title,d.detail,d.pic,d.lang 
-	FROM yss_news n,yss_news_detail d WHERE n.id=d.news_id GROUP BY d.news_id ORDER BY n.sort_order";
+	FROM yss_news n,yss_news_detail d WHERE n.id=d.news_id GROUP BY d.news_id ORDER BY n.date_create DESC LIMIT 6";
 	
 	$rs=mysqli_query($conn,$sql);
 	$dataArray=array();
@@ -20,7 +20,7 @@ $sql="SELECT n.id,n.pic AS main_pic, n.sort_order,n.`type`,n.date_create,d.title
 
 <h1 class="yssfont01 head-style-01">
     <span style="float:left;"><img src="images/box-header-01.png"/></span>
-    <div class="middle">News</div>
+    <div class="middle">Others</div>
     <span><img src="images/box-header-02.png"/></span>
 </h1>
     <?php
@@ -28,9 +28,9 @@ $sql="SELECT n.id,n.pic AS main_pic, n.sort_order,n.`type`,n.date_create,d.title
         for($i=0;$i<$c;$i++){
             $detail = $myFn->limitStrDisplay(100,$dataArray['detail'][$i]); 
     ?>
-  <div class="wp-caption alignleft" style="width:250px">
+  <div class="wp-caption alignleft" style="width:250px; min-height:280px">
   		<a href="news-detail.php?id=<?php echo $dataArray['id'][$i] ?>">
-        <img src="images/news/<?php echo $dataArray['main_pic'][$i] ?>"/>
+        <img src="images/news/<?php echo $dataArray['main_pic'][$i] ?>" style="height:200px !important;"/>
         </a>
         <p class="wp-caption-text">
 		<a href="news-detail.php?id=<?php echo $dataArray['id'][$i] ?>"><?php echo $dataArray['title'][$i] ?></a></p>

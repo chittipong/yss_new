@@ -99,6 +99,7 @@
                         <div class="clear"></div>
                     </div>
                     
+                    
                     <!--<div class="row rangeField">
                         <label class="label_title2">Kilometers:</label>
                         <div class="range-slider">
@@ -143,6 +144,27 @@
                     </div>
                     
                 </form>    
+                
+                <!-- widget_tag_cloud -->
+		        <div class="widget-container widget_tag_cloud">	        	
+	                <h3 class="widget-title">Tag:</h3>
+	                <div class="tagcloud">
+	                    <a href='product-list.php?vehicle_type=1' class='tag-link-5' title='2 topics' style='font-size: 12pt;'>MOTORCYCLE</a>
+	                    <a href='product-list.php?vehicle_type=3' class='tag-link-4' title='2 topics' style='font-size: 10pt;'>SCOOTER</a>                    
+	                    <a href='product-list.php?vehicle_type=2' class='tag-link-4' title='2 topics' style='font-size: 17pt;'>QUAD</a>                    
+	                    <a href='product-list.php?vehicle_type=5' class='tag-link-4' title='2 topics' style='font-size: 13pt;'>SPECIAL</a>
+                        <a href='product-list.php?vehicle_type=4' class='tag-link-5' title='2 topics' style='font-size: 15pt;'>CAR</a>
+	                    <a href='product-list.php' class='tag-link-4' title='2 topics' style='font-size: 10pt;'>Racing Line</a>
+	                    <a href='product-list.php' class='tag-link-7' title='3 topics' style='font-size: 15pt;'>Top Line</a>
+	                    <a href='product-list.php' class='tag-link-3' title='2 topics' style='font-size: 10pt;'>Eco Line</a>
+	                    <a href='product-list.php' class='tag-link-6' title='3 topics' style='font-size: 17pt;'>GAS DTG</a>
+	                    <a href='product-list.php' class='tag-link-5' title='2 topics' style='font-size: 10pt;'>Hydraulic Shock Absorber</a>
+	                    <a href='product-list.php' class='tag-link-5' title='2 topics' style='font-size: 13pt;'>Front Fork</a>
+                        <a href='product-list.php' class='tag-link-5' title='2 topics' style='font-size: 13pt;'>Steering Damper</a>
+                        <a href='product-list.php' class='tag-link-5' title='2 topics' style='font-size: 13pt;'>Accessories</a>
+	                </div>
+	            </div>
+	            <!--/ widget_tag_cloud -->
                 
                 <script type="text/javascript" >
                         jQuery(document).ready(function($) {						
