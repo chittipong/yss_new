@@ -60,8 +60,8 @@ $lang=$_SESSION['sess_lang'];
 		
 		$product_id=$data['product_id'];
 		$product_code=$data['code'];
-		$product_group=$data['product_group'];
-		$product_type=$data['product_type'];
+		$productGroup=$data['product_group'];
+		$productType=$data['product_type'];
 		$type=$data['type'];
 		$brandId=$data['brand_id'];
 		$model=$data['model_id'];
@@ -132,6 +132,12 @@ $lang=$_SESSION['sess_lang'];
 		
 		//echo "year: $year CC: $cc";
 		
+		//GET PRODUCT GROUP NAME=========================
+		  $groupName=$myFn->getData($conn,'detail','yss_product_group',"WHERE `group`='$productGroup'");
+		  
+	  //GET PRODUCT TYPE NAME=========================
+		  $typeName=$myFn->getData($conn,'detail','yss_product_type',"WHERE `type`='$productType'");
+		
 		
 		//GET FEATURE & OPTION ICON FOR DISPLAY=================
 			$preload_icon=$myFn->getPreloadIcon($preload);
@@ -146,7 +152,7 @@ $lang=$_SESSION['sess_lang'];
 			$lengthAdjus_icon=$myFn->getLengthAdjustIcon($lengthAdjust);
 			
 		//GET DESCRIPTION=======================
-			$product_description=$myFn->getDescription($conn,$product_group,$product_type,$preload,$rebound,$compress,$lengthAdjust,$lang);
+			$product_description=$myFn->getDescription($conn,$productGroup,$productType,$preload,$rebound,$compress,$lengthAdjust,$lang);
 
 ?>
 
@@ -274,17 +280,19 @@ $lang=$_SESSION['sess_lang'];
                     
                     <div class="offer_specification">
                     	<ul>
-                    		<!--<li><span class="spec_name">PRODUCT CODE:</span> <strong class="spec_value"><?php echo $product_code ?></strong></li>-->
-                            <li><span class="spec_name">YEAR:</span> <strong class="spec_value"><?php echo $year ?></strong></li>
+                        	<li><span class="spec_name">YEAR:</span> <strong class="spec_value"><?php echo $year ?></strong></li>
+                            <li><span class="spec_name">TYPE:</span> <strong class="spec_value"><?php echo $type ?></strong></li>
+                    		<li><span class="spec_name">PRODUCT GROUP:</span> <strong class="spec_value"><?php echo $groupName ?></strong></li>
+                            <li><span class="spec_name">PRODUCT TYPE:</span> <strong class="spec_value"><?php echo $typeName ?></strong></li>
+                            
                             <!--<li><span class="spec_name">BRAND:</span> <strong class="spec_value"><?php echo $brandName ?></strong></li>
                             <li><span class="spec_name">MODEL:</span> <strong class="spec_value"><?php echo $modelName ?></strong></li>-->
-                            <li><span class="spec_name">TYPE:</span> <strong class="spec_value"><?php echo $type ?></strong></li>
                             <li><span class="spec_name">LENGTH:</span> <strong class="spec_value"><?php echo $length ?></strong> (MM.)</li>
-                            <li><span class="spec_name">TOP:</span> <strong class="spec_value"><?php echo $top ?></strong> (MM.)</li>
-                            <li><span class="spec_name">BOTTOM:</span> <strong class="spec_value"><?php echo $bottom ?></strong> (MM.)</li>
+<!--                            <li><span class="spec_name">TOP:</span> <strong class="spec_value"><?php echo $top ?></strong> (MM.)</li>
+                            <li><span class="spec_name">BOTTOM:</span> <strong class="spec_value"><?php echo $bottom ?></strong> (MM.)</li>-->
                             <li><span class="spec_name">SPRING:</span> <strong class="spec_value"><?php echo $spring ?></strong> (MM.)</li>
-                            <li><span class="spec_name">PISTON SIZE:</span> <strong class="spec_value"><?php echo $piston ?></strong> (MM.)</li>
-                            <li><span class="spec_name">SHAFT SIZE:</span> <strong class="spec_value"><?php echo $shaft ?></strong> (MM.)</li>
+<!--                            <li><span class="spec_name">PISTON SIZE:</span> <strong class="spec_value"><?php echo $piston ?></strong> (MM.)</li>
+                            <li><span class="spec_name">SHAFT SIZE:</span> <strong class="spec_value"><?php echo $shaft ?></strong> (MM.)</li>-->
                     	</ul>
                     </div>
                     
@@ -393,8 +401,26 @@ $lang=$_SESSION['sess_lang'];
 					</div>
                     <?php }//end*** ?>
                     
-                    
+                    <h2 style="clear:both">Technical Info</h2>
+                    <div class="offer_specification">
+                    	<ul>
+                        	<li><span class="spec_name">YEAR:</span> <strong class="spec_value"><?php echo $year ?></strong></li>
+                            <li><span class="spec_name">TYPE:</span> <strong class="spec_value"><?php echo $type ?></strong></li>
+                    		<li><span class="spec_name">PRODUCT GROUP:</span> <strong class="spec_value"><?php echo $groupName ?></strong></li>
+                            <li><span class="spec_name">PRODUCT TYPE:</span> <strong class="spec_value"><?php echo $typeName ?></strong></li>
+                            
+                            <!--<li><span class="spec_name">BRAND:</span> <strong class="spec_value"><?php echo $brandName ?></strong></li>
+                            <li><span class="spec_name">MODEL:</span> <strong class="spec_value"><?php echo $modelName ?></strong></li>-->
+                            <li><span class="spec_name">LENGTH:</span> <strong class="spec_value"><?php echo $length ?></strong> (MM.)</li>
+                            <li><span class="spec_name">TOP:</span> <strong class="spec_value"><?php echo $top ?></strong> (MM.)</li>
+                            <li><span class="spec_name">BOTTOM:</span> <strong class="spec_value"><?php echo $bottom ?></strong> (MM.)</li>
+                            <li><span class="spec_name">SPRING:</span> <strong class="spec_value"><?php echo $spring ?></strong> (MM.)</li>
+                            <li><span class="spec_name">PISTON SIZE:</span> <strong class="spec_value"><?php echo $piston ?></strong> (MM.)</li>
+                            <li><span class="spec_name">SHAFT SIZE:</span> <strong class="spec_value"><?php echo $shaft ?></strong> (MM.)</li>
+                    	</ul>
+                    </div>
 	            </div>
+                
 	            
                 <div id="t_contacts" class="tabcontent clearfix">
 	            	<form action="#" class="details_form ajax_form" id="offer_contact">

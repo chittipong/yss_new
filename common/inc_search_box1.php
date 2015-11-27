@@ -11,7 +11,7 @@
 
 <div class="middle_row row_white search_row" style="background:url(images/bg/bg_001.jpg)">
 		<div class="container">
-        <h1 style="color:#F25720;" class="yssfont01"><i class="fa fa-search" style="color:#fff"></i>  <?php echo $txt_qsearch ?> </h1>
+        <h1 style="color:#F25720;" class="yssfont01"><i class="fa fa-search" style="color:#fff"></i> <?php echo $txt_qsearch ?> </h1>
 			<form action="product-list.php" class="search_form advsearch_hide clearfix">
             	<div class="row field_select">
                     <label class="label_title"><?php echo $txt_vehicle_type ?>:</label>

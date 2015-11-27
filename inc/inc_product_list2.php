@@ -9,7 +9,7 @@
 						INNER JOIN yss_brand b ON p.brand_id=b.brand_id';*/
 						
 					$command = '
-							SELECT product_id,brand_id,model_id,product_group,
+							SELECT product_id,brand_id,model_id,product_group,new,hot,
 								product_type,code,`type`,image,length,spring,piston,
 								shaft,date_create,rebound,compression,length_adjuster,preload
 							FROM yss_product
@@ -60,7 +60,7 @@
                 $brandId=$data['brand_id'];
 				$piston=$data['piston'];
 				$shaft=$data['shaft'];
-				$spring=$data['spring'];
+				//$spring=$data['spring'];
 				$length=$data['length'];
 				$pic=$data['image'];
                 $modelId=$data['model_id'];
@@ -69,13 +69,42 @@
 				$compress=$data['compression'];
 				$lengthAdjust=$data['length_adjuster'];
 				$rebound=$data['rebound'];
+				
+				$new=$data['new'];
+				$hot=$data['hot'];
+				$special="";
+				
+				$year=$myFn->getData($conn,'year','yss_model_detail',"WHERE model_id='$modelId'");
+				
+				if(!empty($year)){
+					$yearTxt="<span style='color:#5A5A5A; float:right;'> Year:  $year</span>";
+				}else{
+					$yearTxt="";	
+				}
+				
+				
+				if($new=="Y"){
+					$special='<span class="sale">New</span>';
+				}
+				
+				if($hot=="Y"){
+					$special='<span class="sale">Hot</span>';
+				}
 				  
 				//CHECK PIC AVARIABLE=============
 					$chkPic='images/products/large/'.$pic;
-					if(!file_exists($chkPic)){
+					if(!file_exists($chkPic) OR $pic==""){
 						//$pic='no-photo.jpg';
 						$pic='t_detail_270px.jpg';
 					}
+					
+				//GET PRODUCT GROUP NAME=========================
+					$groupName=$myFn->getData($conn,'detail','yss_product_group',"WHERE `group`='$productGroup'");
+					
+				//GET PRODUCT TYPE NAME=========================
+					$typeName=$myFn->getData($conn,'detail','yss_product_type',"WHERE `type`='$productType'");
+
+					//echo "Product Group: ".$groupName." Product Type: ".$typeName."<br/>";
 					
 				//GET BRAND NAME=========================
 					$brandName=$myFn->getData($conn,'brand','yss_brand',"WHERE brand_id='$brandId'");
@@ -94,25 +123,32 @@
 		
 				//SET LENGTH AJUSTER ICON FOR DISPLAY===================
 					$lengthAdjus_icon=$myFn->getLengthAdjustIcon($lengthAdjust);
-					
+
         ?>
       		<div class="offer_item clearfix">
-                	<div class="offer_image">
-                    <a href="product-detail.php?id=<?php echo $product_id ?>">
-                    <img src="images/products/large/<?php echo $pic ?>" alt="">
-                    </a></div>
+            	<div class="offer_image">
+                	<a href="product-detail.php?id=<?php echo $product_id ?>" hidefocus="true" style="outline: none;">
+                     <img src="images/products/large/<?php echo $pic ?>" alt="">
+                    </a>
+                    <?php echo $special ?>
+            </div>
+            
                     <div class="offer_aside">
-                    	<h2 class="yssfont01"><a href="product-detail.php?id=<?php echo $product_id ?>"><?php echo $product_code ?></a> <?php $brandName ?></h2>
+                    	<h2 class="yssfont01"><a href="product-detail.php?id=<?php echo $product_id ?>">
+						<?php echo $product_code ?></a></h2>
+                        <h5 class="yssfont01 yss-red-01">
+                        	<span style="color:#393939"><?php echo $brandName ?> - </span>
+                             <?php echo $modelName ?><?php echo $yearTxt ?>
+                        </h5>
                         
-                        
-                        <div class="special_text" style="width:200px;">
-                            <div class="info_row"><span>BRAND:</span> <?php echo $brandName ?></div>
-                            <div class="info_row"><span>MODEL:</span> <?php echo $modelName ?></div>
-                            <div class="info_row"><span>TYPE:</span> <?php echo $type ?></div>
-                            <div class="info_row"><span>LENGTH:</span> <?php echo $length ?></div>
-                            <div class="info_row"><span>PISTON:</span> <?php echo $piston ?></div>
-                            <div class="info_row"><span>SHAFT:</span> <?php echo $shaft ?></div>
-                            <!--<div class="special_price">$44.690</div>-->
+                        <div class="special_text_product" style="width:200px;">
+                        <div class="info_row"><span>SHOCK TYPE:</span> <?php echo $type ?></div>
+                        <div class="info_row"><span>GROUP:</span><?php echo $groupName ?></div>
+                        <div class="info_row"><span>TYPE:</span><?php echo $typeName ?></div>
+<!--                       <div class="info_row"><span>LENGTH:</span> <?php echo $length ?></div>
+                          <div class="info_row"><span>PISTON:</span> <?php  echo $piston ?></div>
+                            <div class="info_row"><span>SHAFT:</span> <?php echo $shaft ?></div>-->
+                           <!--<div class="special_price">$44.690</div>-->
                         </div>
                         
                     	<!--<div class="offer_descr">
@@ -124,7 +160,7 @@
                         
                       <div class="offer_data">
                        	  <div style="text-align:right">
-                       	    <h6 class="yssfont01">Feature</h6>
+                       	    <h6 class="yssfont01 yss-red-01" style="font-size:12px;">Feature</h6>
                               <div class="product-feature2">
 								<?php
 									//DISPLAY FEATURE & OPTION ICON ###################

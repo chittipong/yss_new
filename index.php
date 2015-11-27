@@ -116,7 +116,7 @@ $lang=$_SESSION['sess_lang'];
 
 <!-- middle -->
 <div id="search-container">
-    <?php include ("common/inc_search_box1.php"); //Original Search Style***  ?>
+    <?php include ("common/inc_search_box1.php"); ?>
     <?php //include ("common/inc_search_box2.php");?>
 </div>
     
@@ -130,8 +130,15 @@ $lang=$_SESSION['sess_lang'];
 	                   <div class="col col_2_3  alpha">
 	                    <div class="inner">
                         	<div class="video_frame" id="video-cn">
-                            	<iframe width="100%" height="100%" src="https://www.youtube.com/embed/49y-1Rd2CXw" 
-                                frameborder="0" allowfullscreen></iframe>
+                            <?php
+							//DISPLAY VIDEO===========================================
+								$mainVideo=$myFn->getData($conn,'video','yss_videos',"WHERE special_display='TVC_HOME'");
+								if(!empty($mainVideo) or $mainVideo=='null'){
+									echo '<iframe width="100%" height="100%" src="';
+									echo $mainVideo;
+									echo '" frameborder="0" allowfullscreen></iframe>';
+								}
+							?>
                             </div>
                             
 	                    <!--<h3>WELLCOME TO YSS</h3>

@@ -8,7 +8,7 @@ include("class/MyFunction.php");
 include("class/class_DateTime.php");
 include("class/class_pager.php");
 	
-//CHECK LANGUAGE=========================
+//CHECK LANGUAGE========================
 if(isset($_SESSION['sess_lang'])==""){
 	$_SESSION['sess_lang']='TH';
 }

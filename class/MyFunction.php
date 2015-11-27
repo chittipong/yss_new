@@ -119,7 +119,7 @@ class MyFunction{
 				$data=mysqli_fetch_assoc($rs);
 				return $data['result'];
 			}else{
-				return "Error";
+				return "null";
 			}
 	}//end***
 	

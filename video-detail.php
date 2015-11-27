@@ -132,11 +132,13 @@ $lang=$_SESSION['sess_lang'];
                 <div class="post-aside clearfix" style="padding:20px 0 0 0">
                     <?php 
 						//Display Video--------------
-						if(!empty($video)){ 
-							echo '<div class="video" align="center">'.$video.'</div>';        
-                     	} 
-						
 						echo "<h1 class='yssfont01' style='margin:20px;' align='center'>$title</h1>";
+						
+						if(!empty($video)){ 
+							echo '<div class="video" align="center">';
+							echo '<iframe width="95%" height="500" src="'.$video.'" frameborder="0" allowfullscreen></iframe>';
+							echo '</div>';        
+                     	} 
 						
 						if(!empty($detail)){
 							echo "<p style='margin:20px'>$detail</p>";	
