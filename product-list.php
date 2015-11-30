@@ -45,7 +45,6 @@ $lang=$_SESSION['sess_lang'];
 	$txt_product=$myFn->getWord($conn,'product',$lang);
 	$txt_mostpop=$myFn->getWord($conn,'most_pop_brands',$lang);
 	$txt_viewall=$myFn->getWord($conn,'view_all',$lang);
-	
 ?>
 
 <!doctype html>

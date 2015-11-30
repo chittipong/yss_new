@@ -213,7 +213,7 @@ class MyFunction{
 	//LIST VEHICLE TYPE=========================================
 	function getCatList($conn){
 		$myArray=array();
-		$sql="SELECT id,name FROM yss_vehicle ORDER BY name ASC";
+		$sql="SELECT id,name FROM yss_vehicle ORDER BY 'id' ASC";
 		$rs=mysqli_query($conn,$sql);
 		
 		while($data=mysqli_fetch_assoc($rs)){
@@ -227,7 +227,7 @@ class MyFunction{
 	//LIST PRODUCT GROUP=========================================
 	function getProductGroupList($conn){
 		$myArray=array();
-		$sql="SELECT 'group',detail FROM yss_product_group ORDER BY 'group' ASC";
+		$sql="SELECT 'group',detail FROM yss_product_group ORDER BY sort_order ASC";
 		$rs=mysqli_query($conn,$sql);
 		
 		while($data=mysqli_fetch_assoc($rs)){
@@ -241,7 +241,7 @@ class MyFunction{
 	//LIST PRODUCT TYPE=========================================
 	function getProductTypeList($conn){
 		$myArray=array();
-		$sql="SELECT type,detail FROM yss_product_type ORDER BY type ASC";
+		$sql="SELECT type,detail FROM yss_product_type ORDER BY sort_order ASC";
 		$rs=mysqli_query($conn,$sql);
 		
 		while($data=mysqli_fetch_assoc($rs)){

@@ -178,6 +178,7 @@
                 $product_code=$data['code'];
                 $productGroup=$data['product_group'];
                 $productType=$data['product_type'];
+				$year=$data['year'];
                 $type=$data['type'];
                 $brandId=$data['brand_id'];
 				$piston=$data['piston'];
@@ -191,8 +192,6 @@
 				$compress=$data['compression'];
 				$lengthAdjust=$data['length_adjuster'];
 				$rebound=$data['rebound'];
-				
-				$year=$myFn->getData($conn,'year','yss_model_detail',"WHERE model_id='$modelId'");
 				
 				if(!empty($year)){
 					$yearTxt="<span style='color:#5A5A5A; float:right;'> Year:  $year</span>";

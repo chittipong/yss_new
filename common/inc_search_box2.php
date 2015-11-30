@@ -15,11 +15,11 @@
 
 <div class="middle_row row_white search_row" style="background:url(images/bg/bg_001.jpg)">
 		<div class="container">
-        <h1 style="color:#F25720;"><i class="fa fa-search"></i><?php echo $txt_qsearch ?> </h1>
+        <h1 style="color:#F25720;"><i class="fa fa-search" style="color:#fff;"></i> <?php echo $txt_qsearch ?> </h1>
 			<form action="product-list.php" class="search_form advsearch_hide clearfix">
             	<div class="row field_select">
                     <label class="label_title"><?php echo $txt_vehicle_type ?>:</label>
-                    <select class="select_styled" name="vehicle_type" id="search-vehicle_type">
+                    <select  class="select_styled2" name="vehicle_type" id="search-vehicle_type">
                     	<option value="">All</option>
                     	<?php 
 							$c=count($catArray['id']);
@@ -32,7 +32,7 @@
                 
             	<div class="row field_select">
                     <label class="label_title"><?php echo $txt_select_brand ?>:</label>
-                    <select class="select_styled" name="brand" id="search-brand">
+                    <select class="select_styled2" name="brand" id="search-brand">
                     	<option value="">All</option>
                     	<?php 
 							$c=count($brandArray['id']);
@@ -45,34 +45,20 @@
                 
                 <div class="row field_select">
                     <label class="label_title"><?php echo $txt_select_model ?></label>
-                    <select class="select_styled" name="model">
+                    <select class="select_styled2" name="model" id="search-model">
                     	<option value="">All</option>
                         <?php 
 							$c=count($modelArray['id']);
 							for($i=0;$i<$c;$i++){
 						?>
-                        <option value="<?php echo $modelArray['id'][$i] ?>"><?php echo $modelArray['model'][$i] ?></option>           
+                        <option value="<?php echo $modelArray['id'][$i] ?>"><?php echo $modelArray['model'][$i] ?></option>
                         <?php } ?>                                
                     </select>
                 </div>
                 
                 <div class="row field_select">
-                    <label class="label_title"><?php echo $txt_cc ?>:</label>
-                    <select class="select_styled" name="cc">
-                    	<option value="">All</option>
-                        <?php 
-							$c=count($ccArray['id']);
-							for($i=0;$i<$c;$i++){
-						?>
-                        <option value="<?php echo $ccArray['cc'][$i] ?>"><?php echo $ccArray['cc'][$i] ?></option>           
-                        <?php } ?>
-                    </select>
-                </div>
-                
-                <div class="adv_search_hidden clearfix">
-					<div class="row field_select">
-						<label class="label_title">Year:</label>
-						<select class="select_styled" name="year">
+						<label class="label_title"><?php echo $txt_year ?>:</label>
+						<select class="select_styled2" name="year">
 							<option value="">All</option>
 							<option value="2015">2015</option>
 							<option value="2014">2014</option>
@@ -92,10 +78,26 @@
                             <option value="2000">2000</option>
 						</select>
 					</div>
+                    
+                
+                
+                <div class="adv_search_hidden clearfix">
+					<div class="row field_select">
+                    <label class="label_title"><?php echo $txt_cc ?>:</label>
+                    <select class="select_styled2" name="cc">
+                    	<option value="">All</option>
+                        <?php 
+							$c=count($ccArray['id']);
+							for($i=0;$i<$c;$i++){
+						?>
+                        <option value="<?php echo $ccArray['cc'][$i] ?>"><?php echo $ccArray['cc'][$i] ?></option>           
+                        <?php } ?>
+                    </select>
+                </div>
 					
 					<div class="row field_select">
 						<label class="label_title">Product Group:</label>
-						<select class="select_styled" name="productGroup">
+						<select class="select_styled2" name="productGroup">
 							<option value="">All</option>
 							<?php 
                                 $c=count($pdGroupArray['group']);
@@ -108,7 +110,7 @@
 					
 					<div class="row field_select">
 						<label class="label_title">Product Type:</label>
-						<select class="select_styled" name="productType">
+						<select class="select_styled2" name="productType">
 							<option value="">All</option>
 							<?php 
                                 $c=count($pdTypeArray['type']);
@@ -121,7 +123,7 @@
 					
 					<div class="row field_select">
 						<label class="label_title">Product Range:</label>
-						<select class="select_styled" name="car_location">
+						<select class="select_styled2" name="car_location">
                         	<option value="">All</option>
 							<option value="1">Racing Line</option>
                             <option value="2">Top Line</option>

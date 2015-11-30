@@ -32,6 +32,7 @@ $lang=$_SESSION['sess_lang'];
 	$txt_advSearch=$myFn->getWord($conn,'advance_search',$lang);
 	$txt_select_brand=$myFn->getWord($conn,'select_brand',$lang);
 	$txt_select_model=$myFn->getWord($conn,'select_model',$lang);
+	$txt_year=$myFn->getWord($conn,'year',$lang);
 	$txt_cc=$myFn->getWord($conn,'cc',$lang);
 	$txt_category=$myFn->getWord($conn,'category',$lang);
 	$txt_search=$myFn->getWord($conn,'search',$lang);
@@ -116,8 +117,8 @@ $lang=$_SESSION['sess_lang'];
 
 <!-- middle -->
 <div id="search-container">
-    <?php include ("common/inc_search_box1.php"); ?>
-    <?php //include ("common/inc_search_box2.php");?>
+    <?php //include ("common/inc_search_box1.php"); ?>
+    <?php include ("common/inc_search_box2.php");?>
 </div>
     
     
@@ -227,9 +228,10 @@ $lang=$_SESSION['sess_lang'];
 </html>
 <script>
 //===================SCRIPT FOR CHANGE DROPDOWN LIST============================
-/*$(function(){
+$(function(){
 	$("#search-vehicle_type").change(function(){
-		$("#cusel-scroll-search-brand").empty();
+		
+		$("#search-brand").empty();
 		var vehicle=$("#search-vehicle_type").val();
 		
 		$.post("ajax/ajax_get_brand.php",{v: vehicle},function(data, status){
@@ -248,13 +250,44 @@ $lang=$_SESSION['sess_lang'];
 			
 			//Loop and set Dropdown Option------------------
 			$(brandIdArr).each(function(i){
-				$("#cusel-scroll-search-brand").append("<span value='"+brandIdArr[i]+"'>"+brandNameArr[i]+"</span>");
+				//$("#cusel-scroll-search-brand").append("<span value='"+brandIdArr[i]+"'>"+brandNameArr[i]+"</span>");
+				$("#search-brand").append("<option value='"+brandIdArr[i]+"'>"+brandNameArr[i]+"</option>");
+				
 			});  
 			
 		});
-	});
+	});//end***
+	
+	
+	$("#search-brand").change(function(){
+		
+		$("#search-model").empty();
+		var brand=$("#search-brand").val();
+		
+		$.post("ajax/ajax_get_model.php",{b: brand},function(data, status){
+			//alert("Data: " + data + "\nStatus: " + status);
+			console.log(data);
+			
+			var modelArr=JSON.parse(data);
+			
+			//alert(modelArr.modelId[0]);
+			//alert(modelArr.modelId.length);
+			
+			var modelIdArr=modelArr.modelId;
+			var modelNameArr=modelArr.modelName;
+			
+			//alert(brandNameArr);
+			
+			//Loop and set Dropdown Option------------------
+			$(modelIdArr).each(function(i){
+				$("#search-model").append("<option value='"+modelIdArr[i]+"'>"+modelNameArr[i]+"</option>");
+				
+			});  
+			
+		});
+	});//end***
+	
 });
-*/
 </script>
 
 
