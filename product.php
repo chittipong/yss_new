@@ -144,3 +144,106 @@ $lang=$_SESSION['sess_lang'];
 </div>
 </body>
 </html>
+
+<script>
+$(function(){
+	var total=0;
+	//==========AJAX GET BRAND BY VEHICLE TYPE TO DROPDOWN LIST=================
+	$("#search-vehicle_type").change(function(){
+		var vehicle=$("#search-vehicle_type").val();
+		$("#search-brand").empty();
+		total+=1;
+		
+		$.post("ajax/ajax_get_brand.php",{v: vehicle},function(data, status){
+			//alert("Data: " + data + "\nStatus: " + status);
+			console.log(data);
+			
+			var brandArr=JSON.parse(data);
+			
+			//alert(brandArr.brandId[0]);
+			//alert(brandArr.brandId.length);
+			
+			var brandIdArr=brandArr.brandId;
+			var brandNameArr=brandArr.brandName;
+			
+			//alert(brandNameArr);
+			
+			//Loop and set Dropdown Option------------------
+			$("#search-brand").append("<option value=''>- All -</option>");
+			$(brandIdArr).each(function(i){
+				//$("#cusel-scroll-search-brand").append("<span value='"+brandIdArr[i]+"'>"+brandNameArr[i]+"</span>");
+				$("#search-brand").append("<option value='"+brandIdArr[i]+"'>"+brandNameArr[i]+"</option>");
+			});  
+			
+		});
+	});//end***
+	
+	//==========AJAX GET MODEL BY BRAND TO DROPDOWN LIST=================
+	$("#search-brand").change(function(){
+		var brand=$("#search-brand").val();
+		$("#search-model").empty();							//Clear Dropdown
+		total+=1;
+			
+		$.post("ajax/ajax_get_model.php",{b: brand},function(data, status){
+			//alert("Data: " + data + "\nStatus: " + status);
+			console.log(data);
+			
+			var modelArr=JSON.parse(data);
+			
+			//alert(modelArr.modelId[0]);
+			//alert(modelArr.modelId.length);
+			
+			var modelIdArr=modelArr.modelId;
+			var modelNameArr=modelArr.modelName;
+			
+			//alert(brandNameArr);
+			
+			//Loop and set Dropdown Option------------------
+			$("#search-model").append("<option value=''>- All -</option>");
+			$(modelIdArr).each(function(i){
+				$("#search-model").append("<option value='"+modelIdArr[i]+"'>"+modelNameArr[i]+"</option>");
+			});  
+		});
+	});//end***
+	
+	
+	//==========AJAX GET YEAR BY MODEL TO DROPDOWN LIST=================
+	$("#search-model").change(function(){
+		var model=$("#search-model").val();
+		$("#search-year").empty();							//Clear Dropdown
+		total+=1;
+		
+		$.post("ajax/ajax_get_year.php",{m: model},function(data, status){
+			//alert("Data: " + data + "\nStatus: " + status);
+			console.log(data);
+			
+			var yearArr=JSON.parse(data);
+			
+			//alert(yearArr.modelId[0]);
+			//alert(yearArr.modelId.length);
+			
+			var yearArr=yearArr.year;
+			
+			//alert(brandNameArr);
+			
+			//Loop and set Dropdown Option------------------
+			$("#search-year").append("<option value=''>- All -</option>");
+			$(yearArr).each(function(i){
+				$("#search-year").append("<option value='"+yearArr[i]+"'>"+yearArr[i]+"</option>");
+				
+			});  
+		});
+	});//end***
+	
+	//CHECK TOTAL COUNT AND HIDE CC DROUPDOWN LIST------------------------
+	$("#search-year").change(function(){
+		//alert(total);
+		if(total==3){
+			$("#cc_container").slideUp();			//Hide CC Dropdown List
+		}
+		
+		total=0;									//Reset
+	});
+	
+});
+</script>

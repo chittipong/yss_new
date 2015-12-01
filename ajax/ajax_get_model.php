@@ -7,8 +7,13 @@ include("../class/MyFunction.php");
 	$myFn=new MyFunction();
 	
 	$b=$_POST['b'];	
-
-	$sql="SELECT model_id,model FROM yss_model WHERE  brand_id='$b'";
+	
+	if($b!=""){
+		$sql="SELECT model_id,model FROM yss_model WHERE  brand_id='$b' ORDER BY model ASC";
+	}else{
+		$sql="SELECT model_id,model FROM yss_model ORDER BY model ASC";
+	}
+	
 	$rs=mysqli_query($conn,$sql);
 	
 	$modelArray=array();

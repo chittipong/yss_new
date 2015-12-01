@@ -9,7 +9,7 @@
 						INNER JOIN yss_brand b ON p.brand_id=b.brand_id';*/
 						
 					$command = '
-							SELECT product_id,brand_id,model_id,product_group,new,hot,
+							SELECT product_id,brand_id,model_id,product_group,new,hot,year,abe_shock,
 								product_type,code,`type`,image,length,spring,piston,
 								shaft,date_create,rebound,compression,length_adjuster,preload
 							FROM yss_product
@@ -57,6 +57,8 @@
                 $productGroup=$data['product_group'];
                 $productType=$data['product_type'];
                 $type=$data['type'];
+				$year=$data['year'];
+				$abe_shock=$data['abe_shock'];
                 $brandId=$data['brand_id'];
 				$piston=$data['piston'];
 				$shaft=$data['shaft'];
@@ -135,7 +137,7 @@
             
                     <div class="offer_aside">
                     	<h2 class="yssfont01"><a href="product-detail.php?id=<?php echo $product_id ?>">
-						<?php echo $product_code ?></a></h2>
+						<?php echo $product_code ?> <?php if($abe_shock=="Y"){ echo "(ABE)"; } ?></a></h2>
                         <h5 class="yssfont01 yss-red-01">
                         	<span style="color:#393939"><?php echo $brandName ?> - </span>
                              <?php echo $modelName ?><?php echo $yearTxt ?>

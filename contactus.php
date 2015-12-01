@@ -92,6 +92,8 @@ $lang=$_SESSION['sess_lang'];
 	<div id="header_map"></div>
 	<script>
 	    $(window).ready(function () {
+			var image = 'images/yss_marker_icon1.png';
+			
 	        $("#header_map").gMap({
 	            markers: [{
 	            latitude: 13.595461,
@@ -100,7 +102,7 @@ $lang=$_SESSION['sess_lang'];
 	            html:"<strong>Y.S.S (THAILAND) Company Limited.</strong><br/>88 / 88 Moo.9 Soi Phikulthong Thepharak Rd.<br/>Bangpla, Bangphli, Samutprakarm 10540",
 	            popup: true,
 				icon: {
-					image: '',
+					image: image,
 					iconsize: [74, 88],
 					iconanchor: [37,88],
 					infowindowanchor: [0, 0]

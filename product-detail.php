@@ -48,10 +48,9 @@ $lang=$_SESSION['sess_lang'];
 		FROM yss_product p INNER JOIN yss_brand b ON p.brand_id=b.brand_id 
 		WHERE p.product_id='$id'";*/
 		
-		$sql="SELECT product_id,brand_id,model_id,product_group,product_type,
-			code,`type`,image,piston,shaft,bot,top,spring,length,
-			preload,rebound,compression,length_adjuster,hydraulic,emulsion,
-			on_hose,piggy_back,free_piston,dtg,date_create  
+		$sql="SELECT product_id,brand_id,model_id,product_group,product_type,year,abe_shock,
+			code,`type`,image,piston,shaft,bot,top,spring,length,preload,rebound,compression,
+			length_adjuster,hydraulic,emulsion,on_hose,piggy_back,free_piston,dtg,date_create  
 		FROM yss_product
 		WHERE product_id='$id'";
 			
@@ -63,6 +62,8 @@ $lang=$_SESSION['sess_lang'];
 		$productGroup=$data['product_group'];
 		$productType=$data['product_type'];
 		$type=$data['type'];
+		$year=$data['year'];
+		$abe_shock=$data['abe_shock'];
 		$brandId=$data['brand_id'];
 		$model=$data['model_id'];
 		$bottom=$data['bot'];
@@ -117,15 +118,16 @@ $lang=$_SESSION['sess_lang'];
 				$main_pic='t_detail_400px.jpg';
 			}	
 			
-			
+        
 		//GET BRAND NAME=========================
 		$brandName=$myFn->getData($conn,'brand','yss_brand',"WHERE brand_id='$brandId'");
 		
 		//GET MODEL NAME=========================
 		$modelName=$myFn->getData($conn,'model','yss_model',"WHERE model_id='$model'");
 		
-		//GET YEAR===============================
-		$year=$myFn->getData($conn,'year','yss_model_detail',"WHERE model_id='$model'");
+		//SET YEAR===============================
+		//$year=$myFn->getData($conn,'year','yss_model_detail',"WHERE model_id='$model'");
+		if($year==""){$year="-"; };
 		
 		//GET CC=================================
 		$cc=$myFn->getData($conn,'cc','yss_model_detail',"WHERE model_id='$model'");
@@ -134,10 +136,11 @@ $lang=$_SESSION['sess_lang'];
 		
 		//GET PRODUCT GROUP NAME=========================
 		  $groupName=$myFn->getData($conn,'detail','yss_product_group',"WHERE `group`='$productGroup'");
+		  if($groupName==""){ $groupName="-"; }
 		  
 	  //GET PRODUCT TYPE NAME=========================
 		  $typeName=$myFn->getData($conn,'detail','yss_product_type',"WHERE `type`='$productType'");
-		
+		  if($typeName==""){ $typeName="-"; }
 		
 		//GET FEATURE & OPTION ICON FOR DISPLAY=================
 			$preload_icon=$myFn->getPreloadIcon($preload);
@@ -154,6 +157,8 @@ $lang=$_SESSION['sess_lang'];
 		//GET DESCRIPTION=======================
 			$product_description=$myFn->getDescription($conn,$productGroup,$productType,$preload,$rebound,$compress,$lengthAdjust,$lang);
 
+		//SET ABE DISPLAY TEXT==================
+		if($abe_shock=="Y"){ $abeTxt="Yes"; }else{ $abeTxt="-"; }
 ?>
 
 
@@ -246,7 +251,10 @@ $lang=$_SESSION['sess_lang'];
                 <!-- offer right -->
                 <div class="offer_aside">
                 	<div class="offer_price">
-                    	<strong class="yssfont01"><?php echo $product_code ?></strong><br>
+                    	<strong class="yssfont01">
+							<?php echo $product_code ?> 
+							<?php if($abe_shock=="Y"){ echo "(ABE)"; } ?>
+                        </strong><br>
 						<em><?php //echo $modelName ?></em>
                     </div>
                     
@@ -281,7 +289,9 @@ $lang=$_SESSION['sess_lang'];
                     <div class="offer_specification">
                     	<ul>
                         	<li><span class="spec_name">YEAR:</span> <strong class="spec_value"><?php echo $year ?></strong></li>
-                            <li><span class="spec_name">TYPE:</span> <strong class="spec_value"><?php echo $type ?></strong></li>
+                            <li><span class="spec_name">TYPE:</span> <strong class="spec_value"><?php echo $type ?></strong></li>							
+                            <li><span class="spec_name">ABE:</span> <strong class="spec_value"><?php echo $abeTxt ?></strong></li>
+
                     		<li><span class="spec_name">PRODUCT GROUP:</span> <strong class="spec_value"><?php echo $groupName ?></strong></li>
                             <li><span class="spec_name">PRODUCT TYPE:</span> <strong class="spec_value"><?php echo $typeName ?></strong></li>
                             
@@ -365,12 +375,11 @@ $lang=$_SESSION['sess_lang'];
                                 </p>
                             </div>
                         </div>
-                    
                     <?php } ?>
                     
                     <?php 
 					//===================SHOW REBOUND DETAIL===================
-						///echo "Rebound: ".$rebound;
+						//echo "Rebound: ".$rebound;
 						if($rebound=="Y"){
 					?>
                         <div class="col col_1_2  omega">
@@ -408,6 +417,7 @@ $lang=$_SESSION['sess_lang'];
                             <li><span class="spec_name">TYPE:</span> <strong class="spec_value"><?php echo $type ?></strong></li>
                     		<li><span class="spec_name">PRODUCT GROUP:</span> <strong class="spec_value"><?php echo $groupName ?></strong></li>
                             <li><span class="spec_name">PRODUCT TYPE:</span> <strong class="spec_value"><?php echo $typeName ?></strong></li>
+                            <li><span class="spec_name">ABE:</span> <strong class="spec_value"><?php echo $abeTxt ?></strong></li>
                             
                             <!--<li><span class="spec_name">BRAND:</span> <strong class="spec_value"><?php echo $brandName ?></strong></li>
                             <li><span class="spec_name">MODEL:</span> <strong class="spec_value"><?php echo $modelName ?></strong></li>-->

@@ -7,8 +7,11 @@ include("../class/MyFunction.php");
 	$myFn=new MyFunction();
 	
 	$v=$_POST['v'];
-
-	$sql="SELECT brand_id FROM yss_product WHERE  vehicle_type='$v' GROUP BY brand_id";
+	if($v!=""){
+		$sql="SELECT brand_id FROM yss_product WHERE  vehicle_type='$v' GROUP BY brand_id";
+	}else{
+		$sql="SELECT brand_id FROM yss_product GROUP BY brand_id";
+	}
 	$rs=mysqli_query($conn,$sql);
 	
 	$brandArray=array();
@@ -16,7 +19,7 @@ include("../class/MyFunction.php");
 	while($data=mysqli_fetch_assoc($rs)){
 		$brandId=$data['brand_id'];
 		
-		$brandName=$myFn->getData($conn,'brand','yss_brand',"WHERE brand_id='$brandId'");
+		$brandName=$myFn->getData($conn,'brand','yss_brand',"WHERE brand_id='$brandId ORDER BY brand'");
 		
 		$brandArray['brandId'][]=$brandId;
 		$brandArray['brandName'][]=$brandName;

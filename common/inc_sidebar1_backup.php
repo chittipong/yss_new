@@ -17,16 +17,13 @@
                 <form action="product-list.php" method="GET" class="side_form">
                 
                 	<div class="row input_styled checklist" style="z-index:6">
-                        <label class="label_title"><?php echo $txt_vehicle_type ?>:</label>
-                        <select  class="select_styled2" name="vehicle_type" id="search-vehicle_type">
-                            <option value="">- All-</option>
-                            <?php 
-                                $c=count($catArray['id']);
-                                for($i=0;$i<$c;$i++){
-                            ?>
-                            <option value="<?php echo $catArray['id'][$i] ?>"><?php echo $catArray['name'][$i] ?></option>
-                            <?php } ?>
-                        </select>
+                        <label class="label_title2"><?php echo $txt_vehicle_type ?>:</label><br> 
+                        <?php 
+							$c=count($catArray['id']);
+							for($i=0;$i<$c;$i++){
+						?>
+                      <input type="checkbox" name="vehicle_type[]" id="vehicle_type_<?php echo $catArray['id'][$i] ?>" value="<?php echo $catArray['id'][$i] ?>"> <label for="vehicle_type_<?php echo $catArray['id'][$i] ?>"><?php echo $catArray['name'][$i] ?></span></label>
+                        <?php } ?>
                     </div>
                 
                     <div class="row field_select" style="z-index:10">
@@ -81,7 +78,7 @@
 	                    </select>
                     </div>
                     
-                    <div class="row field_select" style="z-index:7" id="cc_container">
+                    <div class="row field_select" style="z-index:7">
                         <label class="label_title"><?php echo $txt_cc ?>:</label>
                         <select class="select_styled2 white_select" name="cc" id="search-cc">
                         	<option value="" class="default">- All -</option>

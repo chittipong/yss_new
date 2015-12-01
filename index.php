@@ -227,8 +227,8 @@ $lang=$_SESSION['sess_lang'];
 </body>
 </html>
 <script>
-//===================SCRIPT FOR CHANGE DROPDOWN LIST============================
 $(function(){
+	//==========AJAX GET BRAND BY VEHICLE TYPE TO DROPDOWN LIST=================
 	$("#search-vehicle_type").change(function(){
 		
 		$("#search-brand").empty();
@@ -249,6 +249,7 @@ $(function(){
 			//alert(brandNameArr);
 			
 			//Loop and set Dropdown Option------------------
+			$("#search-brand").append("<option value=''>- All -</option>");
 			$(brandIdArr).each(function(i){
 				//$("#cusel-scroll-search-brand").append("<span value='"+brandIdArr[i]+"'>"+brandNameArr[i]+"</span>");
 				$("#search-brand").append("<option value='"+brandIdArr[i]+"'>"+brandNameArr[i]+"</option>");
@@ -258,9 +259,8 @@ $(function(){
 		});
 	});//end***
 	
-	
+	//==========AJAX GET MODEL BY BRAND TO DROPDOWN LIST=================
 	$("#search-brand").change(function(){
-		
 		$("#search-model").empty();
 		var brand=$("#search-brand").val();
 		
@@ -279,8 +279,38 @@ $(function(){
 			//alert(brandNameArr);
 			
 			//Loop and set Dropdown Option------------------
+			$("#search-model").append("<option value=''>- All -</option>");
 			$(modelIdArr).each(function(i){
 				$("#search-model").append("<option value='"+modelIdArr[i]+"'>"+modelNameArr[i]+"</option>");
+				
+			});  
+			
+		});
+	});//end***
+	
+	
+	//==========AJAX GET YEAR BY MODEL TO DROPDOWN LIST=================
+	$("#search-model").change(function(){
+		$("#search-year").empty();
+		var model=$("#search-model").val();
+		
+		$.post("ajax/ajax_get_year.php",{m: model},function(data, status){
+			//alert("Data: " + data + "\nStatus: " + status);
+			console.log(data);
+			
+			var yearArr=JSON.parse(data);
+			
+			//alert(yearArr.modelId[0]);
+			//alert(yearArr.modelId.length);
+			
+			var yearArr=yearArr.year;
+			
+			//alert(brandNameArr);
+			
+			//Loop and set Dropdown Option------------------
+			$("#search-year").append("<option value=''>- All -</option>");
+			$(yearArr).each(function(i){
+				$("#search-year").append("<option value='"+yearArr[i]+"'>"+yearArr[i]+"</option>");
 				
 			});  
 			

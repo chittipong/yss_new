@@ -32,7 +32,7 @@
 					$searchArray[]="m.model_id='$search_model'";
 				}
 				if(!empty($search_year)){
-					$searchArray[]="d.year='$search_year'";
+					$searchArray[]="p.year='$search_year'";
 				}
 				if(!empty($search_cc)){
 					$searchArray[]="d.cc='$search_cc'";
@@ -87,25 +87,25 @@
 <?php	
 //Check for Perfermance search=========================================
 	if(!empty($condition)){ //WHEN THERE IS CONDITION***
-			if($search_year!="" || $search_cc!=""){
-			  	//echo "WHEN THERE IS YEAR AND CC NOT NULL <br/>";
+			if($search_cc!=""){
+			  	//echo "WHEN CC NOT NULL <br/>";
 				  $sql='SELECT p.product_id,p.brand_id,p.model_id,p.vehicle_type,m.model,
-				  p.product_group,p.product_type,d.`year`,d.cc,p.product_group,
+				  p.product_group,p.product_type,p.`year`,p.abe_shock,d.cc,p.product_group,
 				  p.product_type,p.code,p.`type`,p.image,p.`length`,p.spring,p.piston, 
 				  p.shaft,p.date_create,p.rebound,p.compression,p.length_adjuster,p.preload,p.new,p.hot 
 				  FROM yss_product p LEFT JOIN yss_model m ON p.model_id=m.model_id 
 				  LEFT JOIN yss_model_detail d ON m.model_id=d.model_id
 				  WHERE ';
 			  }else{
-				  //echo "WHEN YEAR AND CC NULL<br/>";
+				  //echo "WHEN  CC IS NULL<br/>";
 				  $sql='SELECT p.product_id,p.brand_id,p.model_id,m.model,p.code,p.product_group,p.product_type,p.`type`,
-				  p.image,p.length,p.piston,p.shaft,p.rebound,p.compression,p.length_adjuster,
+				  p.`year`,p.abe_shock,p.image,p.length,p.piston,p.shaft,p.rebound,p.compression,p.length_adjuster,
 				  p.preload,p.new,p.hot FROM yss_product p LEFT JOIN yss_model m ON p.model_id=m.model_id WHERE ';
 			  }
 	}else{//WHEN THERE IS NO CONDITION***
 		  //echo "WHEN CONDITION NULL<br/>";
-		  $sql='SELECT p.product_id,p.brand_id,p.model_id,p.product_group,p.product_type,p.vehicle_type,m.model,
-		  p.product_group,p.product_type,p.code,p.`type`,p.image,p.length,p.spring,p.piston,
+		  $sql='SELECT p.product_id,p.brand_id,p.model_id,p.product_group,p.product_type,p.vehicle_type,p.`year`,
+		  m.model,p.abe_shock,p.product_group,p.product_type,p.code,p.`type`,p.image,p.length,p.spring,p.piston,
 		  p.shaft,p.rebound,p.compression,p.length_adjuster,p.preload,p.new,p.hot
 		  FROM yss_product p,yss_model m WHERE p.model_id=m.model_id';
 	}
@@ -180,6 +180,7 @@
                 $productType=$data['product_type'];
 				$year=$data['year'];
                 $type=$data['type'];
+				$abeShock=$data['abe_shock'];
                 $brandId=$data['brand_id'];
 				$piston=$data['piston'];
 				$shaft=$data['shaft'];
@@ -196,7 +197,7 @@
 				if(!empty($year)){
 					$yearTxt="<span style='color:#5A5A5A; float:right;'> Year:  $year</span>";
 				}else{
-					$yearTxt="";	
+					$yearTxt="-";	
 				}
 				
 				$new=$data['new'];
@@ -260,7 +261,7 @@
             
                     <div class="offer_aside">
                     	<h2 class="yssfont01"><a href="product-detail.php?id=<?php echo $product_id ?>">
-						<?php echo $product_code ?></a></h2>
+						<?php echo $product_code ?> <?php if($abeShock=="Y"){ echo "(ABE)"; } ?></a></h2>
                         <h5 class="yssfont01 yss-red-01">
                         	<span style="color:#393939"><?php echo $brandName ?> - </span>
                              <?php echo $modelName ?><?php echo $yearTxt ?>

@@ -59,6 +59,7 @@ $sql="SELECT * FROM yss_config WHERE id='1' LIMIT 1";
                 <li><a href="setup-install.php"><span><?php echo $menu_setup ?></span></a></li>
                 <li><a href="warranty.php"><span><?php echo $menu_warranty ?></span></a></li>
                 <li><a href="download.php"><span><?php echo $menu_download ?></span></a></li>
+                <li><a href="distributor.php"><span>Distributor</span></a></li>
             </ul>
         </div>
         <!--/ footer col 2 -->
